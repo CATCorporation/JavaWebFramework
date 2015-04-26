@@ -1,0 +1,249 @@
+package controller;
+
+import java.io.File;
+import java.io.IOException;
+
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import model.DbUser;
+
+import org.esgi.web.framework.context.interfaces.IContext;
+import org.esgi.web.framework.core.interfaces.IFrontController;
+import org.esgi.web.framework.router.interfaces.IDispatcher;
+import org.esgi.web.framework.router.interfaces.IRewriter;
+
+import router.Dispatcher;
+import router.RewriteRule;
+import router.Rewriter;
+import context.Context;
+
+public class FrontController extends HttpServlet implements IFrontController {
+
+	private static final long serialVersionUID = 1L;
+
+	public static String URIroot = "/JavaWebFramework/explorer";
+	public static String URIUser = "/JavaWebFramework/user";
+
+	private IRewriter rewriter;
+	private IDispatcher dispatcher;
+	private Context c;
+
+	public void init() {
+		DbUser.initUser();
+		rewriter = new Rewriter();
+		dispatcher = new Dispatcher();
+
+		rewriter.addRule(new RewriteRule(URIroot + "(.*)",
+				"action.ActionUploadFile", new String[] { "path" }) {
+
+			@Override
+			protected boolean checkContext(IContext context) {
+				if (context.getUploadedFiles().length > 0) {
+					String[] param = (String[]) context.getParameter("path");
+
+					if (param != null && param.length > 0) {
+						File f = new File(Context.root.getPath() + param[0]);
+
+						return f.exists() && f.isDirectory();
+					}
+				}
+
+				return false;
+			}
+
+		});
+
+		rewriter.addRule(new RewriteRule(URIroot + "(.*)",
+				"action.ActionDisplayFolder", new String[] { "path" }) {
+
+			@Override
+			protected boolean checkContext(IContext context) {
+				String[] param = (String[]) context.getParameter("path");
+
+				if (param != null && param.length > 0) {
+					File f = new File(Context.root.getPath() + param[0]);
+
+					return f.exists() && f.isDirectory();
+				}
+
+				return false;
+			}
+
+		});
+
+		rewriter.addRule(new RewriteRule(URIroot + "(.*)",
+				"action.ActionDownloadFile", new String[] { "path" }) {
+
+			@Override
+			protected boolean checkContext(IContext context) {
+				String[] param = (String[]) context.getParameter("path");
+
+				if (param != null && param.length > 0) {
+					System.out.println(param[0]);
+
+					File f = new File(Context.root.getPath() + param[0]);
+					System.out.println(f.getAbsolutePath());
+
+					return f.exists() && f.isFile();
+				}
+
+				return false;
+			}
+
+		});
+
+		// Affiche un utilisateur sélectionné
+		rewriter.addRule(new RewriteRule(URIUser + "/display?(.+)",
+				"module.user.Display", new String[] { "path" }) {
+			@Override
+			protected boolean checkContext(IContext context) {
+				if (context.getSessionAttribute("login") == null) {
+					System.out.println("test");
+					return false;
+				}
+				return true;
+			}
+		});
+
+		// Permet d'accueil quand nous ne somme pas connecté
+		rewriter.addRule(new RewriteRule(URIUser + "/accueil",
+				"module.user.Accueil", new String[] { "path" }) {
+			@Override
+			protected boolean checkContext(IContext context) {
+				if (context.getSessionAttribute("login") == null) {
+					return true;
+				}
+				return false;
+			}
+		});
+
+		// Page d'accueil une fois connecté
+		rewriter.addRule(new RewriteRule(URIUser + "/accueil",
+				"module.user.Menu", new String[] { "path" }) {
+			@Override
+			protected boolean checkContext(IContext context) {
+				if (context.getSessionAttribute("login") == null) {
+
+					return false;
+				}
+				return true;
+			}
+		});
+
+		// list des utilisateur
+		rewriter.addRule(new RewriteRule(URIUser + "/userList",
+				"module.user.UserList", new String[] { "path" }) {
+			@Override
+			protected boolean checkContext(IContext context) {
+				if (context.getSessionAttribute("login") == null) {
+
+					return false;
+				}
+				return true;
+			}
+		});
+
+		// list des utilisateur
+		rewriter.addRule(new RewriteRule(URIUser + "/searchUser",
+				"module.user.Search", new String[] { "path" }) {
+			@Override
+			protected boolean checkContext(IContext context) {
+				if (context.getSessionAttribute("login") == null) {
+
+					return false;
+				}
+				return true;
+			}
+		});
+		
+		// Permet de créer un utilisateur
+		rewriter.addRule(new RewriteRule(URIUser + "/createUser",
+				"module.user.Create", new String[] { "path" }) {
+			protected boolean checkContext(IContext context) {
+				if (context.getSessionAttribute("login") == null) {
+
+					return false;
+				}
+				return true;
+			}
+		});
+
+		// Permet à un utilisateur de se connecter
+		rewriter.addRule(new RewriteRule(URIUser + "/loginUser",
+				"module.user.Login", new String[] { "path" }));
+
+		// Permet à un utilisateur de se déconnecter
+		rewriter.addRule(new RewriteRule(URIUser + "/logout",
+				"module.user.Logout", new String[] { "path" }));
+
+		// Permet à l'administrateur de modifier les informations d'un
+		// utilisateur
+		rewriter.addRule(new RewriteRule(URIUser + "/rename?(.+)",
+				"module.user.Rename", new String[] { "path" }){
+			@Override
+			protected boolean checkContext(IContext context) {
+				if (context.getSessionAttribute("login") == null) {
+
+					return false;
+				}
+				return true;
+			}
+		});
+
+		// Modifier les informations d'un utilisateur
+		rewriter.addRule(new RewriteRule(URIUser + "/updateUser",
+				"module.user.Update", new String[] { "path" }){
+			@Override
+			protected boolean checkContext(IContext context) {
+				if (context.getSessionAttribute("login") == null) {
+
+					return false;
+				}
+				return true;
+			}
+		});
+
+		// Permet à l'administrateur de supprimer un utilisateur
+		rewriter.addRule(new RewriteRule(URIUser + "/delete?(.+)",
+				"module.user.Delete", new String[] { "path" }){
+			@Override
+			protected boolean checkContext(IContext context) {
+				if (context.getSessionAttribute("login") == null) {
+					try {
+						context._getResponse().sendRedirect(URIUser+"/accuiel");
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					return false;
+				}
+				return true;
+			}
+		});
+
+	}
+
+	@Override
+	public void service(HttpServletRequest request, HttpServletResponse response) {
+		handle(request, response);
+	}
+
+	@Override
+	public void handle(HttpServletRequest request, HttpServletResponse response) {
+		try {
+			c = new Context(request, response);
+			// Do operations
+			rewriter.rewrite(c);
+			dispatcher.dispatch(c);
+
+			// c.printDebugInfos();
+
+			c.removeUploadedFiles();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+}
