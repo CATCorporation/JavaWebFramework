@@ -125,27 +125,27 @@ public class Context implements IContext {
 		return newtab;
 	}
 	
-	@Override
+	
 	public void setActionClass(String actionClass) {
 		this.actionClass = actionClass;
 	}
 
-	@Override
+	
 	public String getActionClass() {
 		return actionClass;
 	}
 
-	@Override
+	
 	public HttpServletRequest _getRequest() {
 		return request;
 	}
 
-	@Override
+	
 	public HttpServletResponse _getResponse() {
 		return response;
 	}
 
-	@Override
+	
 	public Object getParameter(String key) {
 		return properties.get(key);
 	}
@@ -154,7 +154,7 @@ public class Context implements IContext {
 		properties.put(key, value);
 	}
 
-	@Override
+	
 	public String[] getParameterKeys() {
 		String[] tmp = new String[properties.keySet().size()];
 		int i = 0;
@@ -166,29 +166,29 @@ public class Context implements IContext {
 		return tmp;
 	}
 
-	@Override
+	
 	public void setAttribute(String key, Object value) {
 		request.setAttribute(key, value);
 	}
 
-	@Override
+	
 	public Object getAttribute(String key) {
 		return request.getAttribute(key);
 	}
 	
-	@Override
+	
 	public boolean resetSession() {
 		request.getSession().invalidate();
 		return true;
 	}
 
-	@Override
+	
 	public IHtmlContext toHtmlContext() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
+	
 	public File[] getUploadedFiles() {
 		File[] tmp = new File[files.size()];
 		int i = 0;
@@ -210,17 +210,17 @@ public class Context implements IContext {
 		files = new HashMap<String, File>();
 	}
 
-	@Override
+	
 	public void setSessionAttribute(String key, Object value) {
 		request.getSession().setAttribute(key, value);
 	}
 
-	@Override
+	
 	public String getSessionAttribute(String key) {
 		return (String) request.getSession().getAttribute(key);
 	}
 
-	@Override
+	
 	public String[] getUserCredentials() {
 		// TODO Auto-generated method stub
 		return null;

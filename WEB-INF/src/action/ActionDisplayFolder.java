@@ -32,7 +32,7 @@ public class ActionDisplayFolder implements IAction {
 		return result;
 	}
 	
-	@Override
+	
 	public void proceed(IContext context) {
 		
 		String requestedPath = ((String[])context.getParameter("path"))[0]; // Raw path
@@ -60,7 +60,7 @@ public class ActionDisplayFolder implements IAction {
 					out.print("<li><a href=\"" + requestedURI + "..\">..</a></li>");
 				
 				for(File f : file.listFiles(new FileFilter() {
-					@Override
+					
 					public boolean accept(File f) {	return f.isDirectory(); }
 				})) {
 					out.print("<li><a href=\"" + requestedURI + f.getName() + "\">" + f.getName() + "</a> (directory)</li>");
@@ -68,7 +68,7 @@ public class ActionDisplayFolder implements IAction {
 				
 				// Files
 				for(File f : file.listFiles(new FileFilter() {
-					@Override
+					
 					public boolean accept(File f) {	return !f.isDirectory(); }
 				})) {
 					out.print("<li><a href=\"" + requestedURI + f.getName() + "\">" + f.getName() + "</a> (" + f.length() + " bytes)</li>");
@@ -86,31 +86,31 @@ public class ActionDisplayFolder implements IAction {
 		}
 	}
 
-	@Override
+	
 	public int setPriority(int priority) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
-	@Override
+	
 	public int getPriority() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
-	@Override
+	
 	public void addCredential(String role) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
+	
 	public boolean needsCredentials() {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
-	@Override
+	
 	public boolean hasCredential(String[] roles) {
 		// TODO Auto-generated method stub
 		return false;

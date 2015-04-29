@@ -93,6 +93,19 @@ public class FrontController extends HttpServlet implements IFrontController {
 			}
 
 		});
+			
+		// renderer velocity
+				rewriter.addRule(new RewriteRule(URIUser + "/velocity",
+						"render.VelocityRenderer", new String[] { "path" }){
+					@Override
+					protected boolean checkContext(IContext context) {
+						if (context.getSessionAttribute("login") == null) {
+
+							return false;
+						}
+						return true;
+					}
+				});
 
 		// Affiche un utilisateur sélectionné
 		rewriter.addRule(new RewriteRule(URIUser + "/display?(.+)",
@@ -118,7 +131,7 @@ public class FrontController extends HttpServlet implements IFrontController {
 				return false;
 			}
 		});
-
+		
 		// Page d'accueil une fois connecté
 		rewriter.addRule(new RewriteRule(URIUser + "/accueil",
 				"module.user.Menu", new String[] { "path" }) {
@@ -204,7 +217,8 @@ public class FrontController extends HttpServlet implements IFrontController {
 				return true;
 			}
 		});
-
+		
+		
 		// Permet à l'administrateur de supprimer un utilisateur
 		rewriter.addRule(new RewriteRule(URIUser + "/delete?(.+)",
 				"module.user.Delete", new String[] { "path" }){

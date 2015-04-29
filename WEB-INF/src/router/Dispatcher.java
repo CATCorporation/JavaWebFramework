@@ -47,8 +47,10 @@ public class Dispatcher implements IDispatcher {
 				// TODO Auto-generated catch block
 				JwfErrorHandler.displayError(context, 500, "Could not invoke the method : " + m);
 			}
-		} else // Error 404
+		} else{ // Error 404
+		
 			JwfErrorHandler.displayError(context, 404, "Could not locate the page to load");
+		}
 	}
 
 }

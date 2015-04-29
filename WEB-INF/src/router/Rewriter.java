@@ -29,6 +29,9 @@ public class Rewriter implements IRewriter {
 
 	@Override
 	public void rewrite(IContext context) {
+
+		int a;
+		a = 0;
 		for(IRewriteRule rule : rules) {
 			if(rule.matches(context)) {
 				rule.rewrite(context);

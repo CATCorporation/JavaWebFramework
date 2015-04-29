@@ -1,0 +1,7 @@
+#parse("header.vm") 	
+	<ul>
+	#foreach($city in $cities)
+	   <li>$city</li>
+	#end
+	</ul>
+#parse("footer.vm")
