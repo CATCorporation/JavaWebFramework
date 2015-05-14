@@ -23,7 +23,8 @@ public class FrontController extends HttpServlet implements IFrontController {
 
 	private static final long serialVersionUID = 1L;
 
-	public static String URIroot = "/JavaWebFramework/explorer";
+	public static String URIRoot = "/JavaWebFramework/";
+	public static String URIFile = "/JavaWebFramework/explorer";
 	public static String URIUser = "/JavaWebFramework/user";
 
 	private IRewriter rewriter;
@@ -35,7 +36,7 @@ public class FrontController extends HttpServlet implements IFrontController {
 		rewriter = new Rewriter();
 		dispatcher = new Dispatcher();
 
-		rewriter.addRule(new RewriteRule(URIroot + "(.*)",
+		rewriter.addRule(new RewriteRule(URIFile + "(.*)",
 				"action.ActionUploadFile", new String[] { "path" }) {
 
 			@Override
@@ -55,7 +56,7 @@ public class FrontController extends HttpServlet implements IFrontController {
 
 		});
 
-		rewriter.addRule(new RewriteRule(URIroot + "(.*)",
+		rewriter.addRule(new RewriteRule(URIFile + "(.*)",
 				"action.ActionDisplayFolder", new String[] { "path" }) {
 
 			@Override
@@ -73,7 +74,7 @@ public class FrontController extends HttpServlet implements IFrontController {
 
 		});
 
-		rewriter.addRule(new RewriteRule(URIroot + "(.*)",
+		rewriter.addRule(new RewriteRule(URIFile + "(.*)",
 				"action.ActionDownloadFile", new String[] { "path" }) {
 
 			@Override
@@ -95,13 +96,25 @@ public class FrontController extends HttpServlet implements IFrontController {
 		});
 			
 		// renderer velocity
-				rewriter.addRule(new RewriteRule(URIUser + "/velocity",
+
+		rewriter.addRule(new RewriteRule(URIRoot + "(.*)",
+				"module.Accueil", new String[] { "path" }) {
+
+			@Override
+			protected boolean checkContext(IContext context) {
+				String[] param = (String[]) context.getParameter("path");
+
+				return true;			}
+
+		});
+			
+		rewriter.addRule(new RewriteRule(URIUser + "/velocity",
 						"render.VelocityRenderer", new String[] { "path" }){
 					@Override
 					protected boolean checkContext(IContext context) {
 						if (context.getSessionAttribute("login") == null) {
 
-							return false;
+							return true;
 						}
 						return true;
 					}

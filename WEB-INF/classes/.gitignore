@@ -1,2 +1,8 @@
+/action/
+/context/
 /controller/
-/router/
+/error/
+/interfaces/
+/model/
+/module/
+/render/

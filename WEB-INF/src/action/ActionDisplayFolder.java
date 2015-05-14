@@ -42,7 +42,7 @@ public class ActionDisplayFolder implements IAction {
 		try {
 			if(file.exists() && file.isDirectory()) {
 				HttpServletResponse response = context._getResponse();
-				String requestedURI = FrontController.URIroot + file.getAbsolutePath().substring(Context.root.getAbsolutePath().length()) + "/";
+				String requestedURI = FrontController.URIFile + file.getAbsolutePath().substring(Context.root.getAbsolutePath().length()) + "/";
 				String requestedURL = context._getRequest().getRequestURL().toString();
 				
 				System.out.println(requestedURI);

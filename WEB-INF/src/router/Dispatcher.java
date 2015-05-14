@@ -20,7 +20,7 @@ public class Dispatcher implements IDispatcher {
 	public void dispatch(IContext context) {
 		String className = context.getActionClass();
 		Method m = null;
-		
+		System.err.println(className);
 		if(className != null) {
 			try {
 				
