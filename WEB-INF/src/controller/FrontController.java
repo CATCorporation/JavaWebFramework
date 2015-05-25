@@ -97,7 +97,7 @@ public class FrontController extends HttpServlet implements IFrontController {
 			
 		// renderer velocity
 
-		rewriter.addRule(new RewriteRule(URIRoot + "(.*)",
+		rewriter.addRule(new RewriteRule(URIRoot + "$",
 				"module.Accueil", new String[] { "path" }) {
 
 			@Override
@@ -120,7 +120,7 @@ public class FrontController extends HttpServlet implements IFrontController {
 					}
 				});
 
-		// Affiche un utilisateur sélectionné
+		// Affiche un utilisateur sï¿½lectionnï¿½
 		rewriter.addRule(new RewriteRule(URIUser + "/display?(.+)",
 				"module.user.Display", new String[] { "path" }) {
 			@Override
@@ -133,7 +133,7 @@ public class FrontController extends HttpServlet implements IFrontController {
 			}
 		});
 
-		// Permet d'accueil quand nous ne somme pas connecté
+		// Permet d'accueil quand nous ne somme pas connectï¿½
 		rewriter.addRule(new RewriteRule(URIUser + "/accueil",
 				"module.user.Accueil", new String[] { "path" }) {
 			@Override
@@ -145,7 +145,7 @@ public class FrontController extends HttpServlet implements IFrontController {
 			}
 		});
 		
-		// Page d'accueil une fois connecté
+		// Page d'accueil une fois connectï¿½
 		rewriter.addRule(new RewriteRule(URIUser + "/accueil",
 				"module.user.Menu", new String[] { "path" }) {
 			@Override
@@ -184,7 +184,7 @@ public class FrontController extends HttpServlet implements IFrontController {
 			}
 		});
 		
-		// Permet de créer un utilisateur
+		// Permet de crï¿½er un utilisateur
 		rewriter.addRule(new RewriteRule(URIUser + "/createUser",
 				"module.user.Create", new String[] { "path" }) {
 			protected boolean checkContext(IContext context) {
@@ -196,15 +196,15 @@ public class FrontController extends HttpServlet implements IFrontController {
 			}
 		});
 
-		// Permet à un utilisateur de se connecter
+		// Permet ï¿½ un utilisateur de se connecter
 		rewriter.addRule(new RewriteRule(URIUser + "/loginUser",
 				"module.user.Login", new String[] { "path" }));
 
-		// Permet à un utilisateur de se déconnecter
+		// Permet ï¿½ un utilisateur de se dï¿½connecter
 		rewriter.addRule(new RewriteRule(URIUser + "/logout",
 				"module.user.Logout", new String[] { "path" }));
 
-		// Permet à l'administrateur de modifier les informations d'un
+		// Permet ï¿½ l'administrateur de modifier les informations d'un
 		// utilisateur
 		rewriter.addRule(new RewriteRule(URIUser + "/rename?(.+)",
 				"module.user.Rename", new String[] { "path" }){
@@ -232,14 +232,14 @@ public class FrontController extends HttpServlet implements IFrontController {
 		});
 		
 		
-		// Permet à l'administrateur de supprimer un utilisateur
+		// Permet ï¿½ l'administrateur de supprimer un utilisateur
 		rewriter.addRule(new RewriteRule(URIUser + "/delete?(.+)",
 				"module.user.Delete", new String[] { "path" }){
 			@Override
 			protected boolean checkContext(IContext context) {
 				if (context.getSessionAttribute("login") == null) {
 					try {
-						context._getResponse().sendRedirect(URIUser+"/accuiel");
+						context._getResponse().sendRedirect(URIUser+"/accueil");
 					} catch (IOException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -247,6 +247,39 @@ public class FrontController extends HttpServlet implements IFrontController {
 					return false;
 				}
 				return true;
+			}
+		});
+		
+		rewriter.addRule(new RewriteRule(URIRoot + "style/style.css",
+				"module.style.MainStyle", new String[] { "path" }) {
+			@Override
+			protected boolean checkContext(IContext context) {
+				if (context.getSessionAttribute("login") == null) {
+					return true;
+				}
+				return false;
+			}
+		});
+		
+		rewriter.addRule(new RewriteRule(URIRoot + "javascript/jquery.js",
+				"module.javascript.JQuery", new String[] { "path" }) {
+			@Override
+			protected boolean checkContext(IContext context) {
+				if (context.getSessionAttribute("login") == null) {
+					return true;
+				}
+				return false;
+			}
+		});
+		
+		rewriter.addRule(new RewriteRule(URIRoot + "javascript/functions.js",
+				"module.javascript.Functions", new String[] { "path" }) {
+			@Override
+			protected boolean checkContext(IContext context) {
+				if (context.getSessionAttribute("login") == null) {
+					return true;
+				}
+				return false;
 			}
 		});
 

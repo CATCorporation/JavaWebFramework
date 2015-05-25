@@ -1,2 +1,33 @@
+    		<footer>
+				<div id="footer_links">
+					<ul>
+						<li><a href="index.html">ACCUEIL</a></li>
+						<li><a href="index.html">ACCUEIL</a></li>
+						<li><a href="index.html">ACCUEIL</a></li>
+						<li><a href="index.html">ACCUEIL</a></li>
+						<li><a href="index.html">ACCUEIL</a></li>
+					</ul>
+
+					<ul>
+						<li><a href="index.html">ACCUEIL</a></li>
+						<li><a href="index.html">ACCUEIL</a></li>
+						<li><a href="index.html">ACCUEIL</a></li>
+						<li><a href="index.html">ACCUEIL</a></li>
+						<li><a href="index.html">ACCUEIL</a></li>
+					</ul>
+
+					<ul>
+						<li><a href="index.html">ACCUEIL</a></li>
+						<li><a href="index.html">ACCUEIL</a></li>
+						<li><a href="index.html">ACCUEIL</a></li>
+						<li><a href="index.html">ACCUEIL</a></li>
+						<li><a href="index.html">ACCUEIL</a></li>
+					</ul>
+				</div>
+			</footer>
+		</div>
+		
+		<script src="/JavaWebFramework/javascript/jquery.js"></script>
+		<script src="/JavaWebFramework/javascript/functions.js"></script>
     </body>
 </html>

@@ -1,0 +1,13 @@
+$(document).ready(function(){
+	$("#signup-link").click(function(){
+		$("#background-login").fadeIn();
+		$("#popup-login").fadeIn();
+		$("#body").css("overflow", "hidden");
+	});
+	
+	$("#background-login").click(function(){
+		$("#background-login").fadeOut();
+		$("#popup-login").fadeOut();
+		$("#body").css("overflow", "auto");
+	});
+});

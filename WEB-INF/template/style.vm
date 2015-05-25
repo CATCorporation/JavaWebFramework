@@ -1,0 +1,261 @@
+body, html{
+	font-family: Sans-serif;
+	padding: auto;
+	margin: auto;
+	background-color: rgb(220, 220, 220);
+	line-height: 1.6;
+	font-weight: 300;
+	overflow: hidden;
+	height: 100%;
+	color: rgb(30, 30, 30);
+}
+
+#page {
+	overflow-y: scroll;
+	height: 100%;
+	margin: auto;
+}
+
+h1 {
+	color: rgb(225, 157, 6);
+}
+
+
+/********** pop up login **********/
+#background-login{
+	z-index: 2;
+	position: fixed;
+	opacity: 0.5;
+	height: 100%;
+	width: 100%;
+	background-color: rgb(120, 120, 120);
+	display: none;
+}
+
+#popup-login{
+	display: none;
+	border-radius: 3px;
+	width: 22%;
+	text-align: center;
+	z-index: 3;
+	margin-top: 15%;
+	margin-left: 42%;
+	position: fixed;
+	background-color: rgb(245, 245, 245);
+	color: rgb(225, 157, 6);
+}
+
+.popup-titre{
+	background-color: rgb(0, 128, 193);
+	width: 100%;
+	border-radius: 3px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	color: white;
+	margin: 0px;
+	margin-bottom: 10px;
+}
+
+.popup-titre label{
+	padding: 10px;
+	/*margin-top: 10px;*/
+}
+
+.popup-information{
+	padding: 10px;
+}
+
+.popup-information input{
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+}
+
+.popup-information .button{
+	margin-top: 10px;
+	padding: 10px;
+}
+
+.button{
+	background-color: rgb(0, 128, 193);
+	border: 0 none;
+	cursor: pointer;
+	padding: 10px;
+	border-radius: 3px;
+	margin: 10px;
+	color: white;
+	margin-bottom: 10px;
+}
+
+.button:hover{
+	background-color: rgb(0, 118, 183);
+}
+
+
+/********** header **********/
+header {
+	background-color: rgb(0, 128, 193);
+	padding-top: 20px;
+	padding-bottom: 20px;
+	color: white;
+	position: relative;
+}
+
+header h1 {
+	float: left;
+	font-weight: bold;
+	margin-left: 7%;
+	margin-top: 0px;
+}
+
+header h1 a{
+	text-decoration: none;
+	color: white;
+}
+
+header h1 a:hover{
+	color: rgb(225, 157, 6);
+}
+
+header ul{
+	text-align: center;
+	margin-right: 15%;
+}
+
+header li {
+	display: inline;
+	text-align: center;
+}
+
+header li a {
+	color: white;
+	text-decoration: none;
+	padding: 10px;
+	font-size: 75%;
+}
+
+header li a:hover {
+	color: rgb(26, 188, 148);
+}
+
+.lien-connexion{
+	text-align: right;
+	margin-top: -43px;
+}
+
+#signup-link{
+	margin-right: -50 %;
+}
+
+/* section */
+section{
+	width:60%;
+	margin: 0px auto;
+	color: rgb(52, 73, 94);
+	font-size: 18px;
+	line-height: 1.2;
+	font-weight: 150;
+}
+
+section h1{
+	font-size: 40px;
+	color: rgb(225, 157, 6);
+}
+
+section p{
+	font-weight: 300;
+	margin: 0px 0px 28px;
+	padding: 0px;
+	line-height: 1.625;
+}
+
+section a{
+	color: rgb();
+}
+
+section a:hover{
+	text-decoration: underline;
+}
+
+section{
+	width:65%;
+	margin: auto;
+	margin-left: 8%;
+}
+
+.article{
+	background-color: rgb(245, 245, 245);
+	padding: 20px;
+	margin: 40px;
+	border-radius: 3px;
+}
+
+.article h1{
+	padding: 0px;
+	margin-top: 0px;
+}
+
+/********** article **********/
+article{
+	border-radius: 3px;
+	width: 16%;
+	padding: 10px;
+	text-align: center;
+	float: right;
+	margin-top: -100.1%;
+	margin-right: 10%;
+	background-color: rgb(245, 245, 245);
+	position: relative;
+}
+
+article h1{
+	padding: 0px;
+	margin: 0px;
+}
+
+article ul{
+	list-style-type: none;
+	margin-right: 15%;
+}
+
+article ul li a{
+	text-decoration: none;
+}
+
+
+/********* footer **********/
+footer {
+	background-color: rgb(243, 243, 243);
+	padding-top: 20px;
+	padding-bottom: 20px;
+	color: white;
+	height: 130px;
+	position: relative;
+}
+
+#footer_links{
+	margin-left: 30%;
+}
+
+footer ul{
+	text-align: center;
+	float: left;
+	margin-left: 50px;
+}
+
+footer  ul li {
+	text-align: center;
+	display: block;
+}
+
+footer ul li a {
+	color: rgb(150, 150, 150);
+	text-decoration: none;
+	padding: 10px;
+	float: top;
+	font-size: 75%;
+}
+
+footer ul li a:hover{
+	font-style: underline;
+	text-decoration: underline;
+}
