@@ -4,9 +4,11 @@ import interfaces.IMyAction;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import model.DbUser;
+
 import org.esgi.web.framework.action.interfaces.IAction;
 import org.esgi.web.framework.context.interfaces.IContext;
+
+import dao.DbUser;
 
 public class Delete implements IMyAction {
 

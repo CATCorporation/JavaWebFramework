@@ -6,10 +6,11 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
-import model.DbUser;
+
 import org.esgi.web.framework.action.interfaces.IAction;
 import org.esgi.web.framework.context.interfaces.IContext;
 
+import dao.DbUser;
 import render.UserToJson;
 
 public class UserList implements IMyAction {

@@ -3,11 +3,11 @@ package render;
 import java.io.File;
 import java.io.IOException;
 
-import model.DbUser;
-
 import org.codehaus.jackson.map.ObjectMapper;
 import org.esgi.web.framework.context.interfaces.IContext;
 import org.esgi.web.framework.renderer.interfaces.IRenderer;
+
+import dao.DbUser;
 
 public class UserToJson implements IRenderer{
 

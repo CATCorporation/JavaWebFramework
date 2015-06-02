@@ -7,8 +7,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.DbUser;
-
 import org.esgi.web.framework.context.interfaces.IContext;
 import org.esgi.web.framework.core.interfaces.IFrontController;
 import org.esgi.web.framework.router.interfaces.IDispatcher;
@@ -18,6 +16,7 @@ import router.Dispatcher;
 import router.RewriteRule;
 import router.Rewriter;
 import context.Context;
+import dao.DbUser;
 
 public class FrontController extends HttpServlet implements IFrontController {
 

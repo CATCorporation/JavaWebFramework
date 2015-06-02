@@ -1,0 +1,9 @@
+package model;
+
+public interface CodeError {
+
+
+    int SUCESS = 0, FAILLURE = 500, NOT_INPLEMENT = 999;
+    int DOMAIN_NOT_SUPPORTED = 4001, ENCRYPTION_FAIL = 4002;
+    int CONNEXION_FAIL = 5001, STATEMENT_EXECUTE_FAIL = 5002, STATEMENT_CLOSE_FAIL = 5003 ; 
+}
