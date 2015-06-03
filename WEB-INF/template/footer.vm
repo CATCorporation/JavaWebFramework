@@ -27,7 +27,7 @@
 			</footer>
 		</div>
 		
-		<script src="/JavaWebFramework/javascript/jquery.js"></script>
-		<script src="/JavaWebFramework/javascript/functions.js"></script>
+		<script src="javascript/jquery.js"></script>
+		<script src="javascript/functions.js"></script>
     </body>
 </html>
