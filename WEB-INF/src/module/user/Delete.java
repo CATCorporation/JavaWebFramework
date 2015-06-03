@@ -37,8 +37,8 @@ public class Delete implements IMyAction {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		DbUser.deleteUser(DbUser.getUser(((String[]) context
-				.getParameter("deleteUser"))[0]));
+//		DbUser.deleteUser(DbUser.getUser(((String[]) context
+//				.getParameter("deleteUser"))[0]));
 
 		try {
 			context._getResponse().sendRedirect(URI);

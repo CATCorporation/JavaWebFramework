@@ -40,32 +40,32 @@ public class Rename implements IMyAction{
 		ArrayList<String> value = new ArrayList<String>();
 		value.add("user");
 		value.add("admin");
-		HashMap<String, String> user = DbUser.getUser(((String[]) context
-				.getParameter("renameUser"))[0]);
+//		HashMap<String, String> user = DbUser.getUser(((String[]) context
+//				.getParameter("renameUser"))[0]);
 
-		out.println("<a href=\"accueil\">Accueil</a>");
-		out.println("<a href=\"logout\">Deconexion</a>");
-		String form = "<h2>Modifier utilisateur : " + user.get("login") + "</h2>";
-		form += "<form action=\"./updateUser\" method=\"post\">" + "<div>"
-				+ "<input type=\"hidden\" name=\"id\" value=\"" + user.get("id") + "\"/>" + "</div>" + "<div>"
-				+ "<label for=\"login\">Login :</label>"
-				+ "<input type=\"text\" name=\"login\" value=\"" + user.get("login") + "\"/>" + "</div>" + "<div>"
-				+ "<label for=\"mdp\">Mot de passe :</label>"
-				+ "<input type=\"text\" name=\"mdp\" value=\"" + user.get("mdp") + "\"/>" + "</div>"
-				+ "<select name=\"role\">";
+//		out.println("<a href=\"accueil\">Accueil</a>");
+//		out.println("<a href=\"logout\">Deconexion</a>");
+//		String form = "<h2>Modifier utilisateur : " + user.get("login") + "</h2>";
+//		form += "<form action=\"./updateUser\" method=\"post\">" + "<div>"
+//				+ "<input type=\"hidden\" name=\"id\" value=\"" + user.get("id") + "\"/>" + "</div>" + "<div>"
+//				+ "<label for=\"login\">Login :</label>"
+//				+ "<input type=\"text\" name=\"login\" value=\"" + user.get("login") + "\"/>" + "</div>" + "<div>"
+//				+ "<label for=\"mdp\">Mot de passe :</label>"
+//				+ "<input type=\"text\" name=\"mdp\" value=\"" + user.get("mdp") + "\"/>" + "</div>"
+//				+ "<select name=\"role\">";
 
-		for (String v : value) {
-			if(v.equals(user.get("role")))
-				form += "<option value=\"" + v + "\" selected=\"selected\">" + v + "</option>";	
-			else
-				form += "<option value=\"" + v + "\">" + v + "</option>";
-		}
+//		for (String v : value) {
+//			if(v.equals(user.get("role")))
+//				form += "<option value=\"" + v + "\" selected=\"selected\">" + v + "</option>";	
+//			else
+//				form += "<option value=\"" + v + "\">" + v + "</option>";
+//		}
 
-		form += "</select>" + "<div class=\"button\">"
-				+ "<input type=\"submit\" value=\"Envoyer\"></button>"
-				+ "</div></form>";
-
-		out.println(form);
+//		form += "</select>" + "<div class=\"button\">"
+//				+ "<input type=\"submit\" value=\"Envoyer\"></button>"
+//				+ "</div></form>";
+//
+//		out.println(form);
 
 	}
 

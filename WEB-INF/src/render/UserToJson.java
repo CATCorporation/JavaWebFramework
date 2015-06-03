@@ -16,12 +16,12 @@ public class UserToJson implements IRenderer{
 	public String render(IContext context) {
 		// TODO Auto-generated method stub
 		ObjectMapper mapper = new ObjectMapper();
-		try {
-			mapper.writeValue(new File(URI), DbUser.listUser);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		try {
+////			mapper.writeValue(new File(URI), DbUser.listUser);
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 		return null;
 	}
 

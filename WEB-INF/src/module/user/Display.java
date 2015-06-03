@@ -35,24 +35,24 @@ public class Display implements IMyAction {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		HashMap<String, String> user = DbUser.getUser(((String[]) context
-				.getParameter("displayUser"))[0]);
+//		HashMap<String, String> user = DbUser.getUser(((String[]) context
+//				.getParameter("displayUser"))[0]);
 
-		out.println("<a href=\"accueil\">Accueil</a>");
-		out.println("<a href=\"logout\">Deconexion</a>");
-		out.println("<h2>" + user.get("login") + "</h2>");
-		out.println("<p>Id : " + user.get("id") + "</br>");
-		if (context.getSessionAttribute("role").equals("admin")) {
-			out.println("Mdp : " + user.get("mdp") + "</br>");
-		}
-		out.println("Role : " + user.get("role") + "</br>");
-
-		if (context.getSessionAttribute("role").equals("admin")) {
-			out.println("<a href='./rename?renameUser=" + user.get("id")
-					+ "'>Update</a>");
-			out.println("<a href='./delete?deleteUser=" + user.get("id")
-					+ "'>Delete</a>");
-		}
+//		out.println("<a href=\"accueil\">Accueil</a>");
+//		out.println("<a href=\"logout\">Deconexion</a>");
+//		out.println("<h2>" + user.get("login") + "</h2>");
+//		out.println("<p>Id : " + user.get("id") + "</br>");
+//		if (context.getSessionAttribute("role").equals("admin")) {
+//			out.println("Mdp : " + user.get("mdp") + "</br>");
+//		}
+//		out.println("Role : " + user.get("role") + "</br>");
+//
+//		if (context.getSessionAttribute("role").equals("admin")) {
+//			out.println("<a href='./rename?renameUser=" + user.get("id")
+//					+ "'>Update</a>");
+//			out.println("<a href='./delete?deleteUser=" + user.get("id")
+//					+ "'>Delete</a>");
+//		}
 
 	}
 

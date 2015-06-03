@@ -30,27 +30,27 @@ public class UserList implements IMyAction {
 	
 	public void proceed(IContext context) {
 		// TODO Auto-generated method stub
-		PrintWriter out = null;
-		try {
-			out = context._getResponse().getWriter();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		ArrayList<String> value = new ArrayList<String>();
-		value.add("user");
-		value.add("admin");
-
-		out.println("<a href=\"accueil\">Accueil</a>");
-		out.println("<a href=\"logout\">Deconexion</a>");
-		out.println("<h1>Liste des utilisateurs</h1>");
-		for (HashMap<String, String> user : DbUser.listUser) {
-			out.println("<a href='./display?displayUser=" + user.get("id")
-					+ "'>" + user.get("login") + "</a>");
-			out.println("</br>");
-		}
-		new UserToJson().render(context);
+//		PrintWriter out = null;
+//		try {
+//			out = context._getResponse().getWriter();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		
+//		ArrayList<String> value = new ArrayList<String>();
+//		value.add("user");
+//		value.add("admin");
+//
+//		out.println("<a href=\"accueil\">Accueil</a>");
+//		out.println("<a href=\"logout\">Deconexion</a>");
+//		out.println("<h1>Liste des utilisateurs</h1>");
+//		for (HashMap<String, String> user : DbUser.listUser) {
+//			out.println("<a href='./display?displayUser=" + user.get("id")
+//					+ "'>" + user.get("login") + "</a>");
+//			out.println("</br>");
+//		}
+//		new UserToJson().render(context);
 
 	}
 

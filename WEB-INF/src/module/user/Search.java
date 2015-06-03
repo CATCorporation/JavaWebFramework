@@ -28,31 +28,31 @@ public class Search implements IMyAction {
 	
 	
 	public void proceed(IContext context) {
-		// TODO Auto-generated method stub
-		PrintWriter out = null;
-		try {
-			out = context._getResponse().getWriter();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		ArrayList<HashMap<String, String>> usersFind = new ArrayList<HashMap<String, String>>();
-		String login = ((String[]) context.getParameter("login"))[0]
-				.toLowerCase();
-		for (HashMap<String, String> u : DbUser.listUser) {
-			if (u.get("login").matches("(.*)" + login + "(.*)")) {
-				usersFind.add(u);
-			}
-		}
-		out.println("<a href=\"accueil\">Accueil</a>");
-		out.println("<a href=\"logout\">Deconexion</a>");
-		out.println("<h2>Resultat</h2>");
-		for (HashMap<String, String> u : usersFind) {
-			out.println("<a href='./display?displayUser=" + u.get("id")
-					+ "'>" + u.get("login") + "</a>");
-			out.println("</br>");
-
-		}
+//		// TODO Auto-generated method stub
+//		PrintWriter out = null;
+//		try {
+//			out = context._getResponse().getWriter();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		ArrayList<HashMap<String, String>> usersFind = new ArrayList<HashMap<String, String>>();
+//		String login = ((String[]) context.getParameter("login"))[0]
+//				.toLowerCase();
+//		for (HashMap<String, String> u : DbUser.listUser) {
+//			if (u.get("login").matches("(.*)" + login + "(.*)")) {
+//				usersFind.add(u);
+//			}
+//		}
+//		out.println("<a href=\"accueil\">Accueil</a>");
+//		out.println("<a href=\"logout\">Deconexion</a>");
+//		out.println("<h2>Resultat</h2>");
+//		for (HashMap<String, String> u : usersFind) {
+//			out.println("<a href='./display?displayUser=" + u.get("id")
+//					+ "'>" + u.get("login") + "</a>");
+//			out.println("</br>");
+//
+//		}
 	}
 
 	

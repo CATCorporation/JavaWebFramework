@@ -42,7 +42,7 @@ public class Create implements IMyAction {
 		user.put("mdp", ((String[]) context.getParameter("mdp"))[0]);
 		user.put("role", ((String[]) context.getParameter("role"))[0]);
 
-		DbUser.addUser(user);
+//		DbUser.addUser(user);
 		
 		try {
 			context._getResponse().sendRedirect(URI);

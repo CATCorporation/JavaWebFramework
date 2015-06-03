@@ -31,7 +31,7 @@ public class FrontController extends HttpServlet implements IFrontController {
 	private Context c;
 
 	public void init() {
-		DbUser.initUser();
+		//DbUser.initUser();
 		rewriter = new Rewriter();
 		dispatcher = new Dispatcher();
 

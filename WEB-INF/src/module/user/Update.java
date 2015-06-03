@@ -29,20 +29,20 @@ public class Update implements IMyAction {
 	
 	public void proceed(IContext context) {
 		// TODO Auto-generated method stub
-		HashMap<String, String> user = new HashMap<String, String>();
-		user.put("id", ((String[]) context.getParameter("id"))[0]);
-		user.put("login", ((String[]) context.getParameter("login"))[0]);
-		user.put("mdp", ((String[]) context.getParameter("mdp"))[0]);
-		user.put("role", ((String[]) context.getParameter("role"))[0]);
-		
-		DbUser.updateUser(user);
-
-		try {
-			context._getResponse().sendRedirect(URI);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		HashMap<String, String> user = new HashMap<String, String>();
+//		user.put("id", ((String[]) context.getParameter("id"))[0]);
+//		user.put("login", ((String[]) context.getParameter("login"))[0]);
+//		user.put("mdp", ((String[]) context.getParameter("mdp"))[0]);
+//		user.put("role", ((String[]) context.getParameter("role"))[0]);
+//		
+//		DbUser.updateUser(user);
+//
+//		try {
+//			context._getResponse().sendRedirect(URI);
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 
 	}
 

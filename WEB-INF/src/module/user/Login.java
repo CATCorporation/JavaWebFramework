@@ -46,11 +46,11 @@ public class Login implements IMyAction {
 		for (String s : (String[]) context.getParameter("mdp")) {
 			mdp = s;
 		}
-		for(HashMap<String, String> u : DbUser.listUser){
-			if(u.get("login").equals(login) && u.get("mdp").equals(mdp)){
-				user = u;
-			}
-		}
+//		for(HashMap<String, String> u : DbUser.listUser){
+//			if(u.get("login").equals(login) && u.get("mdp").equals(mdp)){
+//				user = u;
+//			}
+//		}
 		if(user == null){
 			out.println("<p>Login ou mdp incorrect !</p>");
 		}else{
