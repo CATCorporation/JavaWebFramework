@@ -48,7 +48,9 @@ public class Accueil implements IMyAction {
 
 		vcontext.put("name", "Velocityyy");
 		vcontext.put("cities", cities);
-
+		
+		//<link rel="stylesheet" href="/JavaWebFramework/style/style.css">
+		
 		Template t = null;
 
 		try {

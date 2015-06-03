@@ -1,3 +1,4 @@
+<style>
 body, html{
 	font-family: Sans-serif;
 	padding: auto;
@@ -259,3 +260,4 @@ footer ul li a:hover{
 	font-style: underline;
 	text-decoration: underline;
 }
+</style>

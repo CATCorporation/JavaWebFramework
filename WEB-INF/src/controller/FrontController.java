@@ -248,39 +248,6 @@ public class FrontController extends HttpServlet implements IFrontController {
 				return true;
 			}
 		});
-		
-		rewriter.addRule(new RewriteRule(URIRoot + "style/style.css",
-				"module.style.MainStyle", new String[] { "path" }) {
-			@Override
-			protected boolean checkContext(IContext context) {
-				if (context.getSessionAttribute("login") == null) {
-					return true;
-				}
-				return false;
-			}
-		});
-		
-		rewriter.addRule(new RewriteRule(URIRoot + "javascript/jquery.js",
-				"module.javascript.JQuery", new String[] { "path" }) {
-			@Override
-			protected boolean checkContext(IContext context) {
-				if (context.getSessionAttribute("login") == null) {
-					return true;
-				}
-				return false;
-			}
-		});
-		
-		rewriter.addRule(new RewriteRule(URIRoot + "javascript/functions.js",
-				"module.javascript.Functions", new String[] { "path" }) {
-			@Override
-			protected boolean checkContext(IContext context) {
-				if (context.getSessionAttribute("login") == null) {
-					return true;
-				}
-				return false;
-			}
-		});
 
 	}
 

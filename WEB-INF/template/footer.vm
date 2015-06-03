@@ -27,7 +27,7 @@
 			</footer>
 		</div>
 		
-		<script src="javascript/jquery.js"></script>
-		<script src="javascript/functions.js"></script>
+		<script>#parse("jquery.vm")</script>
+		<script>#parse("functions.vm")</script>
     </body>
 </html>
