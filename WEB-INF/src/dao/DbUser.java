@@ -157,7 +157,7 @@ public class DbUser {
 			statementInstance = connectionInstance.prepareStatement(request);
 
 			statementInstance.setInt(1, user.getId());
-			statementInstance.executeQuery();
+			statementInstance.executeUpdate();
 		} catch (SQLException ex) {
 			error = CodeError.STATEMENT_EXECUTE_FAIL;
 		} finally {
