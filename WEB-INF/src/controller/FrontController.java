@@ -105,6 +105,39 @@ public class FrontController extends HttpServlet implements IFrontController {
 				return true;			}
 
 		});
+		
+		rewriter.addRule(new RewriteRule(URIRoot + "mission",
+				"module.Mission", new String[] { "path" }) {
+
+			@Override
+			protected boolean checkContext(IContext context) {
+				String[] param = (String[]) context.getParameter("path");
+
+				return true;			}
+
+		});
+		
+		rewriter.addRule(new RewriteRule(URIRoot + "jobs",
+				"module.Jobs", new String[] { "path" }) {
+
+			@Override
+			protected boolean checkContext(IContext context) {
+				String[] param = (String[]) context.getParameter("path");
+
+				return true;			}
+
+		});
+		
+		rewriter.addRule(new RewriteRule(URIRoot + "projets",
+				"module.Projets", new String[] { "path" }) {
+
+			@Override
+			protected boolean checkContext(IContext context) {
+				String[] param = (String[]) context.getParameter("path");
+
+				return true;			}
+
+		});
 			
 		rewriter.addRule(new RewriteRule(URIUser + "/velocity",
 						"render.VelocityRenderer", new String[] { "path" }){
@@ -230,7 +263,7 @@ public class FrontController extends HttpServlet implements IFrontController {
 		});
 		
 		
-		// Permet � l'administrateur de supprimer un utilisateur
+		// Permet a l'administrateur de supprimer un utilisateur
 		rewriter.addRule(new RewriteRule(URIUser + "/delete?(.+)",
 				"module.user.Delete", new String[] { "path" }){
 			@Override

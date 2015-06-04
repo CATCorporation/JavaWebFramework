@@ -12,9 +12,9 @@ $(document).ready(function(){
 	});
 
 	$("#supprimer-actualite").click(function(){
-		// var confirm = confirm("Voulez-vous vraiment supprimer cette actualité ?");
-		var supprimer = confirm("Voulez-vous vraiment supprimer cette actualité ?");
-		if(confirm){
+		// var confirm = confirm("Voulez-vous vraiment supprimer cette actualite ?");
+		var supprimer = confirm("Voulez-vous vraiment supprimer cette actualite ?");
+		if(confirm == true){
 			alert("Actualité supprimée");
 		}
 	});

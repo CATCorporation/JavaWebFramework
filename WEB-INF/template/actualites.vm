@@ -2,12 +2,11 @@
 			
 <section>
 	<div class="article">
-		<h1>Dernière actualité</h1>
+		<h1>Derni&egrave;re actualit&eacute;</h1>
 		#if($idUser > 0)
 			<input id="supprimer-actualite" type="button" value="-" />	
 		#end
 		<p>
-			$idUser
 			Et Epigonus quidem amictu tenus philosophus, ut apparuit, prece frustra
 			temptata, sulcatis lateribus mortisque metu admoto turpi confessione
 			cogitatorum socium, quae nulla erant, fuisse firmavit cum nec vidisset
@@ -35,7 +34,7 @@
 		</p>
 	</div>
 	<div class="article">
-		<h1>Actualité avant la dernière actualité</h1>
+		<h1>Actualité avant la derni&egrave;re actualité</h1>
 		<p>
 			Et Epigonus quidem amictu tenus philosophus, ut apparuit, prece frustra
 			temptata, sulcatis lateribus mortisque metu admoto turpi confessione
@@ -65,7 +64,7 @@
 </section>
 
 <article>
-	<h1>Dernières actualités</h1>
+	<h1>Derni&egrave;res actualit&eacute;s</h1>
 	<ul>
 		<li><a href="index.html">ACCUEIL</a></li>
 		<li><a href="index.html">ACCUEIL</a></li>
