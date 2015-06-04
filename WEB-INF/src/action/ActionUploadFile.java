@@ -3,16 +3,28 @@ package action;
 import java.io.File;
 import java.io.IOException;
 
-import context.Context;
-import error.JwfErrorHandler;
-
 import org.apache.commons.io.FileUtils;
 import org.esgi.web.framework.action.interfaces.IAction;
 import org.esgi.web.framework.context.interfaces.IContext;
 
+import context.Context;
+import error.JwfErrorHandler;
+
 public class ActionUploadFile implements IAction {
 
 	
+	private ActionUploadFile() {
+		System.err.println("Singleton ActionUploadFile Velocity");
+	}
+
+	public static ActionUploadFile getInstance() {
+		return actionUploadFileHolder.INSTANCE;
+	}
+
+	private static class actionUploadFileHolder {
+		private static final ActionUploadFile INSTANCE = new ActionUploadFile();
+	}
+
 	public void proceed(IContext context) {
 		String requestedPath = ((String[])context.getParameter("path"))[0]; // Raw path
 		File file = new File(Context.root.getPath() + requestedPath);       // File for that path
@@ -29,7 +41,7 @@ public class ActionUploadFile implements IAction {
 			}
 		}
 		
-		new ActionDisplayFolder().proceed(context);
+		ActionDisplayFolder.getInstance().proceed(context);
 	}
 
 	

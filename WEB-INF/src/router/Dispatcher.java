@@ -14,13 +14,15 @@ public class Dispatcher implements IDispatcher {
 	/**
 	 * Constructor.
 	 */
-	public Dispatcher() {}
-
+	public Dispatcher() {
+		System.out.println("new Dispatcher");
+	}
+	
 	@Override
 	public void dispatch(IContext context) {
 		String className = context.getActionClass();
 		Method m = null;
-		System.err.println(className);
+		System.out.println(className);
 		if(className != null) {
 			try {
 				

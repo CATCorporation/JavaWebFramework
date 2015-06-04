@@ -16,7 +16,6 @@ import router.Dispatcher;
 import router.RewriteRule;
 import router.Rewriter;
 import context.Context;
-import dao.DbUser;
 
 public class FrontController extends HttpServlet implements IFrontController {
 
