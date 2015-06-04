@@ -26,6 +26,7 @@ public class DbUser {
 				connectionInstance = DbConnect.getConnection();
 			} catch (Exception ex) {
 				error = CodeError.CONNEXION_FAIL;
+				System.err.println("ERROR CONNECT USER : " + error);
 			}
 
 			statementInstance = connectionInstance.prepareStatement(request);
