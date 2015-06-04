@@ -149,12 +149,13 @@ header li a:hover {
 
 /* section */
 section{
-	width:60%;
+	width:82%;
 	margin: 0px auto;
 	color: rgb(52, 73, 94);
 	font-size: 18px;
 	line-height: 1.2;
 	font-weight: 150;
+	margin-left: 8%;
 }
 
 section h1{
@@ -177,12 +178,6 @@ section a:hover{
 	text-decoration: underline;
 }
 
-section{
-	width:65%;
-	margin: auto;
-	margin-left: 8%;
-}
-
 #supprimer-actualite{
 	background-color: rgb(245, 245, 245);
 	color: red;
@@ -195,7 +190,7 @@ section{
 	padding-left: 9px;
 	padding-right: 9px;
 	float: right;
-	margin-top: -11%;
+	margin-top: -8.5%;
 	margin-right: -1%;
 }
 

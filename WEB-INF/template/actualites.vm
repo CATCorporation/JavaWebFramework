@@ -3,28 +3,21 @@
 <section>
 	
 	#foreach ($news in $newsList)
-		<div class="article">
-			<h1>$news.getTitle()</h1>
-			#if($idUser > 0)
-				<input id="supprimer-actualite" type="button" value="-" />	
-			#end
-			
-			$news.getText()
-		</div>
+		<form>
+			<div class="article">
+				<h1>$news.getTitle()</h1>
+				#if($idUser > 0)
+					<input id="supprimer-actualite" type="submit" value="-" />	
+				#end
+				
+				$news.getText()
+				
+			</div>
+		</form>
 	#end
 	
 </section>
 
-<article>
-	<h1>Derni&egrave;res actualit&eacute;s</h1>
-	<ul>
-		<li><a href="index.html">ACCUEIL</a></li>
-		<li><a href="index.html">ACCUEIL</a></li>
-		<li><a href="index.html">ACCUEIL</a></li>
-		<li><a href="index.html">ACCUEIL</a></li>
-		<li><a href="index.html">ACCUEIL</a></li>
-	</ul>
-</article>
 </div>
 			
 #parse("footer.vm")
