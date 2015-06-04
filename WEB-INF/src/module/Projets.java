@@ -38,9 +38,13 @@ public class Projets implements IMyAction{
 	    ve.init();
 		
 		VelocityContext vcontext = new VelocityContext();
-		vcontext.put("idUser", User.getInstance().getId());
-		vcontext.put("idUserTest", User.getInstance().getId());
 		
+		if(context.getSessionAttribute("user") != null){
+	    	User user = new User((String) context.getSessionAttribute("user"));
+	    	vcontext.put("idUser", user.getId());
+	    }else{
+	    	vcontext.put("idUser", 0);	
+	    }
 
 		Template t = null;
 

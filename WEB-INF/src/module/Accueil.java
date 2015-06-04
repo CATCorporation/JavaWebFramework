@@ -1,10 +1,12 @@
 package module;
 
+import interfaces.IMyAction;
+
 import java.io.IOException;
 import java.io.StringWriter;
 import java.util.ArrayList;
-import java.util.List;
 
+import model.News;
 import model.User;
 
 import org.apache.velocity.Template;
@@ -14,7 +16,7 @@ import org.apache.velocity.runtime.RuntimeConstants;
 import org.esgi.web.framework.action.interfaces.IAction;
 import org.esgi.web.framework.context.interfaces.IContext;
 
-import interfaces.IMyAction;
+import dao.DbNews;
 
 public class Accueil implements IMyAction {
 
@@ -44,6 +46,7 @@ public class Accueil implements IMyAction {
 	    if(context.getSessionAttribute("user") != null){
 	    	User user = new User((String) context.getSessionAttribute("user"));
 	    	vcontext.put("idUser", user.getId());
+	    	vcontext.put("newsList", (ArrayList<News>) DbNews.getAllNews());
 	    }else{
 	    	vcontext.put("idUser", 0);	
 	    }
