@@ -25,6 +25,12 @@ public class User {
 				+ ", role=" + role + "]";
 	}
 
+	public void reset(){
+		id = 0;
+		login = null;
+		password = null;
+		role = null;
+	}
 	public int getId() {
 		return id;
 	}

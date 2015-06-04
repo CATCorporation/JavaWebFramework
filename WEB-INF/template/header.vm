@@ -33,11 +33,11 @@
 						<li><a href="index.html">JOBS</a></li>
 					</ul>
 					<ul class="lien-connexion">
-						##if ($admin)
-							<li><a id="signup-link" href="#">DECONNEXION</a></li>
-						##else
-							<!-- <li><a id="signup-link" href="#">CONNEXION</a></li> -->
-						##endif
+						#if($idUserTest > 0)
+							<li><a id="logout-link" href="./logout">DECONNEXION</a></li>
+						#else
+							<li><a id="signup-link" href="#">CONNEXION</a></li>
+						#end
 					</ul>
 				</nav>
 			</header>

@@ -1,15 +1,11 @@
-#if($idUser == 0)
-	#parse("header.vm")
-#else
-	#parse("headerAdmin.vm")	
-#end
+#parse("header.vm")
 			
 <section>
 	<div class="article">
-		<h1>DerniÃ¨re actualitÃ©</h1>
-		<!-- if admin -->
-			<input id="supprimer-actualite" type="button" value="-" />
-		<!-- endif -->
+		<h1>Dernière actualité</h1>
+		#if($idUser > 0)
+			<input id="supprimer-actualite" type="button" value="-" />	
+		#end
 		<p>
 			$idUser
 			Et Epigonus quidem amictu tenus philosophus, ut apparuit, prece frustra
@@ -39,7 +35,7 @@
 		</p>
 	</div>
 	<div class="article">
-		<h1>ActualitÃ© avant la derniÃ¨re actualitÃ©</h1>
+		<h1>Actualité avant la dernière actualité</h1>
 		<p>
 			Et Epigonus quidem amictu tenus philosophus, ut apparuit, prece frustra
 			temptata, sulcatis lateribus mortisque metu admoto turpi confessione
@@ -69,7 +65,7 @@
 </section>
 
 <article>
-	<h1>DerniÃ¨res actualitÃ©s</h1>
+	<h1>Dernières actualités</h1>
 	<ul>
 		<li><a href="index.html">ACCUEIL</a></li>
 		<li><a href="index.html">ACCUEIL</a></li>

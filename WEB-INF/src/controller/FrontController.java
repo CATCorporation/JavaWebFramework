@@ -199,7 +199,7 @@ public class FrontController extends HttpServlet implements IFrontController {
 				"module.user.Login", new String[] { "path" }));
 
 		// Permet � un utilisateur de se d�connecter
-		rewriter.addRule(new RewriteRule(URIUser + "/logout",
+		rewriter.addRule(new RewriteRule(URIRoot + "logout",
 				"module.user.Logout", new String[] { "path" }));
 
 		// Permet � l'administrateur de modifier les informations d'un

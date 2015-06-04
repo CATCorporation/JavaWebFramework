@@ -1,14 +1,18 @@
 package module.user;
 
 import interfaces.IMyAction;
+
 import java.io.IOException;
 import java.io.PrintWriter;
+
+import model.User;
+
 import org.esgi.web.framework.action.interfaces.IAction;
 import org.esgi.web.framework.context.interfaces.IContext;
 
 public class Logout implements IMyAction{
 
-	private final static String URI = "/JavaWebFramework/user/accueil";
+	private final static String URI = "/JavaWebFramework/";
 
 	private Logout(){
 		
@@ -32,6 +36,7 @@ public class Logout implements IMyAction{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		User.getInstance().reset();
 		context.resetSession();
 		try {
 			context._getResponse().sendRedirect(URI);

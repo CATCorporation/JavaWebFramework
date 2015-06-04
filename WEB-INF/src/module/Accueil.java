@@ -41,6 +41,8 @@ public class Accueil implements IMyAction {
 		
 		VelocityContext vcontext = new VelocityContext();
 		vcontext.put("idUser", User.getInstance().getId());
+		vcontext.put("idUserTest", User.getInstance().getId());
+
 		Template t = null;
 
 		try {
