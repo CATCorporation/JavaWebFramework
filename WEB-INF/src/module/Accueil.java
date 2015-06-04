@@ -5,6 +5,8 @@ import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.User;
+
 import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.VelocityEngine;
@@ -38,19 +40,7 @@ public class Accueil implements IMyAction {
 	    ve.init();
 		
 		VelocityContext vcontext = new VelocityContext();
-		vcontext.put("page_title", "Accueil");	
-		vcontext.put("session", "panda");
-		List<String> cities = new ArrayList<String>();
-		cities.add("paris");
-		cities.add("londres");
-		cities.add("chicago");
-		cities.add("tokyo");
-
-		vcontext.put("name", "Velocityyy");
-		vcontext.put("cities", cities);
-		
-		//<link rel="stylesheet" href="/JavaWebFramework/style/style.css">
-		
+		vcontext.put("idUser", User.getInstance().getId());
 		Template t = null;
 
 		try {

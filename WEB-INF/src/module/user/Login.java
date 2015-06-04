@@ -26,9 +26,9 @@ public class Login implements IMyAction {
 		private static final Login INSTANCE = new Login();
 	}
 	
-	private final static String URI = "/JavaWebFramework/user/accueil";
+	private final static String URI = "/JavaWebFramework/";
 
-	
+	@Override
 	public void proceed(IContext context) {
 		// TODO Auto-generated method stub
 		PrintWriter out = null;
@@ -39,7 +39,7 @@ public class Login implements IMyAction {
 			e.printStackTrace();
 		}
 
-		User user = new User();
+		User user = User.getInstance();
 		for (String s : (String[]) context.getParameter("login")) {
 			user.setLogin(s);
 		}
@@ -47,7 +47,7 @@ public class Login implements IMyAction {
 			user.setPassword(s);
 		}
 		DbUser.connectUser(user);
-		System.err.println(user);
+		
 //		if (user == null) {
 //			out.println("<p>Login ou mdp incorrect !</p>");
 //		} else {

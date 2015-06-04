@@ -1,5 +1,6 @@
 package model;
 
+
 public class User {
 
 	private int id;
@@ -7,17 +8,17 @@ public class User {
 	private String password;
 	private Role role;
 
-	public User() {
+	private User() {
 
 	}
-
-	public User(int id, String login, String password, Role role) {
-		this.id = id;
-		this.login = login;
-		this.password = password;
-		this.role = role;
+	public static User getInstance(){
+		return userHolder.INSTANCE;
 	}
-
+	
+	private static class userHolder{
+		private static final User INSTANCE = new User();
+	}
+	
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", login=" + login + ", password=" + password

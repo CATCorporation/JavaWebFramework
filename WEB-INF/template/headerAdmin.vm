@@ -2,7 +2,7 @@
 <html lang="fr">
 	<head>
 		<meta charset="utf-8">
-		<title>Panda Roux Corp</title>
+		<title>Pandaaaaaaaaaaaaaaaaaaaa Roux Corp</title>
 		#parse("style.vm")
 	</head>
 
@@ -33,11 +33,7 @@
 						<li><a href="index.html">JOBS</a></li>
 					</ul>
 					<ul class="lien-connexion">
-						##if ($admin)
-							<li><a id="signup-link" href="#">DECONNEXION</a></li>
-						##else
-							<!-- <li><a id="signup-link" href="#">CONNEXION</a></li> -->
-						##endif
+						<li><a id="signup-link" href="#">CONNEXION</a></li>
 					</ul>
 				</nav>
 			</header>

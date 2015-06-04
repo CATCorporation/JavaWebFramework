@@ -1,5 +1,8 @@
-#parse("header.vm")
-	
+#if($idUser == 0)
+	#parse("header.vm")
+#else
+	#parse("headerAdmin.vm")	
+#end
 			
 <section>
 	<div class="article">
@@ -8,6 +11,7 @@
 			<input id="supprimer-actualite" type="button" value="-" />
 		<!-- endif -->
 		<p>
+			$idUser
 			Et Epigonus quidem amictu tenus philosophus, ut apparuit, prece frustra
 			temptata, sulcatis lateribus mortisque metu admoto turpi confessione
 			cogitatorum socium, quae nulla erant, fuisse firmavit cum nec vidisset
