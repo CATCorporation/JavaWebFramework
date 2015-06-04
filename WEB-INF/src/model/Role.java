@@ -15,6 +15,13 @@ public class Role {
 		this.name = name;
 	}
 
+	public Role(String name) {
+		if(name.equals("Admin")){
+			id = 1;
+			this.name = name;
+		}
+	}
+
 	public int getId() {
 		return id;
 	}

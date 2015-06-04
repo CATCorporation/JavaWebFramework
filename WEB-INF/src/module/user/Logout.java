@@ -10,6 +10,8 @@ import model.User;
 import org.esgi.web.framework.action.interfaces.IAction;
 import org.esgi.web.framework.context.interfaces.IContext;
 
+import context.Context;
+
 public class Logout implements IMyAction{
 
 	private final static String URI = "/JavaWebFramework/";
@@ -36,7 +38,8 @@ public class Logout implements IMyAction{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		User.getInstance().reset();
+		User user = new User((String) context.getSessionAttribute("user"));
+		user.reset();
 		context.resetSession();
 		try {
 			context._getResponse().sendRedirect(URI);

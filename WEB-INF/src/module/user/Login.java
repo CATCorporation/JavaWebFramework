@@ -39,7 +39,7 @@ public class Login implements IMyAction {
 			e.printStackTrace();
 		}
 
-		User user = User.getInstance();
+		User user = new User();
 		for (String s : (String[]) context.getParameter("login")) {
 			user.setLogin(s);
 		}
@@ -47,7 +47,7 @@ public class Login implements IMyAction {
 			user.setPassword(s);
 		}
 		DbUser.connectUser(user);
-		
+		context.setSessionAttribute("user", user.toString());
 //		if (user == null) {
 //			out.println("<p>Login ou mdp incorrect !</p>");
 //		} else {

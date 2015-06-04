@@ -38,11 +38,16 @@ public class Accueil implements IMyAction {
 	    ve.setProperty(RuntimeConstants.FILE_RESOURCE_LOADER_PATH, context._getRequest().getRealPath("/").replace("\\", "/")+"WEB-INF/template");
 	    
 	    ve.init();
-		
 		VelocityContext vcontext = new VelocityContext();
-		vcontext.put("idUser", User.getInstance().getId());
-		vcontext.put("idUserTest", User.getInstance().getId());
 
+		
+	    if(context.getSessionAttribute("user") != null){
+	    	User user = new User((String) context.getSessionAttribute("user"));
+	    	vcontext.put("idUser", user.getId());
+	    }else{
+	    	vcontext.put("idUser", 0);	
+	    }
+	    
 		Template t = null;
 
 		try {

@@ -1,5 +1,9 @@
 package model;
 
+import java.nio.channels.SeekableByteChannel;
+
+import com.mysql.jdbc.interceptors.SessionAssociationInterceptor;
+
 
 public class User {
 
@@ -8,21 +12,23 @@ public class User {
 	private String password;
 	private Role role;
 
-	private User() {
+	public User() {
 
 	}
-	public static User getInstance(){
-		return userHolder.INSTANCE;
-	}
 	
-	private static class userHolder{
-		private static final User INSTANCE = new User();
+	public User(String sessionAttribute) {
+		String temp[] = sessionAttribute.split(",");
+		
+		id = Integer.parseInt(temp[0].split("=")[1]);
+		login = temp[1].split("=")[1];
+		password = temp[2].split("=")[1];
+		role = new Role(temp[3].split("=")[1]);
 	}
-	
+
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", login=" + login + ", password=" + password
-				+ ", role=" + role + "]";
+		return "id=" + id + ", login=" + login + ", password=" + password
+				+ ", role=" + role;
 	}
 
 	public void reset(){

@@ -33,7 +33,7 @@
 						<li><a href="jobs">JOBS</a></li>
 					</ul>
 					<ul class="lien-connexion">
-						#if($idUserTest > 0)
+						#if($idUser > 0)
 							<li><a id="logout-link" href="./logout">DECONNEXION</a></li>
 						#else
 							<li><a id="signup-link" href="#">CONNEXION</a></li>
