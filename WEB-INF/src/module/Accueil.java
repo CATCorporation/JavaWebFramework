@@ -48,7 +48,7 @@ public class Accueil implements IMyAction {
 		try {
 			StringWriter sw = new StringWriter();
 			
-			t = ve.getTemplate("test.vm");			
+			t = ve.getTemplate("actualites.vm");			
 			t.merge(vcontext, sw);
 			
 			context._getResponse().getWriter().write(sw.toString());
