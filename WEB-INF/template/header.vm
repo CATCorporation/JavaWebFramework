@@ -31,7 +31,11 @@
 						<li><a href="index.html">JOBS</a></li>
 					</ul>
 					<ul class="lien-connexion">
-						<li><a id="signup-link" href="#">CONNEXION</a></li>
+						##if ($admin)
+							<li><a id="signup-link" href="#">DECONNEXION</a></li>
+						##else
+							<!-- <li><a id="signup-link" href="#">CONNEXION</a></li> -->
+						##endif
 					</ul>
 				</nav>
 			</header>
