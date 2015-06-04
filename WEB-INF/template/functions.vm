@@ -10,4 +10,12 @@ $(document).ready(function(){
 		$("#popup-login").fadeOut();
 		$("#body").css("overflow", "auto");
 	});
+
+	$("#supprimer-actualite").click(function(){
+		// var confirm = confirm("Voulez-vous vraiment supprimer cette actualité ?");
+		var supprimer = confirm("Voulez-vous vraiment supprimer cette actualité ?");
+		if(confirm){
+			alert("Actualité supprimée");
+		}
+	});
 });
