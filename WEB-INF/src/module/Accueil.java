@@ -46,10 +46,11 @@ public class Accueil implements IMyAction {
 	    if(context.getSessionAttribute("user") != null){
 	    	User user = new User((String) context.getSessionAttribute("user"));
 	    	vcontext.put("idUser", user.getId());
-	    	vcontext.put("newsList", (ArrayList<News>) DbNews.getAllNews());
 	    }else{
 	    	vcontext.put("idUser", 0);	
 	    }
+	    
+	    vcontext.put("newsList", (ArrayList<News>) DbNews.getAllNews());
 	    
 		Template t = null;
 
