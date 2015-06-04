@@ -7,15 +7,26 @@ import java.io.OutputStream;
 
 import javax.servlet.http.HttpServletResponse;
 
-import context.Context;
-import error.JwfErrorHandler;
-
 import org.esgi.web.framework.action.interfaces.IAction;
 import org.esgi.web.framework.context.interfaces.IContext;
 
+import context.Context;
+import error.JwfErrorHandler;
+
 public class ActionDownloadFile implements IAction {
 
-	
+	private ActionDownloadFile() {
+		System.err.println("Singleton ActionDownloadFile Velocity");
+	}
+
+	public static ActionDownloadFile getInstance() {
+		return actionDownloadFileHolder.INSTANCE;
+	}
+
+	private static class actionDownloadFileHolder {
+		private static final ActionDownloadFile INSTANCE = new ActionDownloadFile();
+	}
+
 	public void proceed(IContext context) {
 		HttpServletResponse response = context._getResponse();
 	
