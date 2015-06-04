@@ -19,7 +19,7 @@ public class DbUser {
 		int error = CodeError.SUCESS;
 		Connection connectionInstance = null;
 		PreparedStatement statementInstance = null;
-		String request = "SELECT count(*), id FROM users where login = ? and password = ?;";
+		String request = "SELECT count(*), id FROM user where login = ? and password = ?";
 
 		try {
 			try {
@@ -40,12 +40,16 @@ public class DbUser {
 			
 		} catch (SQLException ex) {
 			error = CodeError.STATEMENT_EXECUTE_FAIL;
+			System.err.println("ERROR CONNECT USER : " + error);
+			System.err.println(ex.getMessage());
+
 		} finally {
 			if (statementInstance != null) {
 				try {
 					statementInstance.close();
 				} catch (SQLException ex) {
 					error = CodeError.STATEMENT_CLOSE_FAIL;
+					System.err.println("ERROR CONNECT USER : " + error);
 				}
 			}
 		}
@@ -56,7 +60,7 @@ public class DbUser {
 		int error;
 		Connection connectionInstance = null;
 		PreparedStatement statementInstance = null;
-		String request = "INSERT INTO users(login, password, id_role) VALUES (?, ?, ?);";
+		String request = "INSERT INTO user(login, password, id_role) VALUES (?, ?, ?);";
 
 		try {
 			try {

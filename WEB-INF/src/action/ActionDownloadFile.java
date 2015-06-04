@@ -34,7 +34,7 @@ public class ActionDownloadFile implements IAction {
 		File file = new File(Context.root.getPath() + requestedPath);       // File for that path
 		
 		// Detect if exist
-		try {
+			try {
 			if(file.exists() && file.isFile()) {
 				// Send the file
 				OutputStream out = response.getOutputStream();

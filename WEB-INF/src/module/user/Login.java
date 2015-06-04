@@ -47,7 +47,7 @@ public class Login implements IMyAction {
 			user.setPassword(s);
 		}
 		DbUser.connectUser(user);
-//		System.err.println(user);
+		System.err.println(user);
 //		if (user == null) {
 //			out.println("<p>Login ou mdp incorrect !</p>");
 //		} else {
