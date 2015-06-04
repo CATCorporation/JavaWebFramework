@@ -8,6 +8,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import context.Context;
+
 /**
  * Classe static permetant à une base de donnée MySql
  * @author Stitch & Mary
@@ -16,7 +18,7 @@ public class DbConnect {
 
     private static Connection connexion;
     private static final String[] conf = new String[4];
-
+    public static Context context;
     /**
      * Permet de se connecter à la base de donnée
      *
@@ -30,7 +32,7 @@ public class DbConnect {
                 conf[2] = "";
                 conf[3] = "";
                 try {
-                    FileReader fichierLecture = new FileReader("src\\conf\\confDatabase");
+                    FileReader fichierLecture = new FileReader(context._getRequest().getRealPath("/").replace("\\", "/")+"WEB-INF/src/conf/confDatabase");
                     BufferedReader fichier = new BufferedReader(fichierLecture);
                     String ligne;
                     int i = 0;
@@ -54,6 +56,7 @@ public class DbConnect {
             }
             try {
                 connexion = DriverManager.getConnection(conf[0] + "/" + conf[1], conf[2], conf[3]);
+                System.err.println(conf[0] + "/" + conf[1] + conf[2] + conf[3]);
             } catch (SQLException e) {
                 System.err.println(e.getMessage());
 

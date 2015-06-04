@@ -11,6 +11,7 @@ import java.util.Map.Entry;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.DbConnect;
 import error.JwfErrorHandler;
 
 import org.apache.commons.fileupload.FileItem;
@@ -40,6 +41,7 @@ public class Context implements IContext {
 	 * @throws IOException
 	 */
 	public Context(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		DbConnect.context = this;
 		this.request = request;
 		this.response = response;
 		

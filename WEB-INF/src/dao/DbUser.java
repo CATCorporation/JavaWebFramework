@@ -19,7 +19,7 @@ public class DbUser {
 		int error = CodeError.SUCESS;
 		Connection connectionInstance = null;
 		PreparedStatement statementInstance = null;
-		String request = "SELECT count(*), id FROM user where login = ? and password = ?";
+		String request = "SELECT * FROM user where login = ? and password = ?";
 
 		try {
 			try {
@@ -36,7 +36,8 @@ public class DbUser {
 
 			ResultSet result = statementInstance.executeQuery();
 			result.next();
-			assignRole(user);
+			user.setId(result.getInt("id"));
+			assignRole(user, result.getInt("id_role"));
 			
 		} catch (SQLException ex) {
 			error = CodeError.STATEMENT_EXECUTE_FAIL;
@@ -171,7 +172,7 @@ public class DbUser {
 		return error;
 	}
 
-	public static int assignRole(User user) {
+	public static int assignRole(User user, int id) {
 		int error = CodeError.SUCESS;
 		Connection connectionInstance = null;
 		PreparedStatement statementInstance = null;
@@ -186,7 +187,7 @@ public class DbUser {
 
 			statementInstance = connectionInstance.prepareStatement(request);
 
-			statementInstance.setInt(1, user.getRole().getId());
+			statementInstance.setInt(1, id);
 			ResultSet result = statementInstance.executeQuery();
 			result.next();
 			Role role = new Role();
