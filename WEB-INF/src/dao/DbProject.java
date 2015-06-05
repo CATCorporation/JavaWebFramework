@@ -70,7 +70,6 @@ public class DbProject {
 			}
 
 			statementInstance = connectionInstance.prepareStatement(request);
-			statementInstance = connectionInstance.prepareStatement(request);
 			statementInstance.setString(1, project.getTitle());
 			statementInstance.setString(2, project.getText());
 			statementInstance.setString(3, project.getPicture());
