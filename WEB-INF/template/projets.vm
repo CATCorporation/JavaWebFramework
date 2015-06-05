@@ -50,11 +50,4 @@
 
 </div>
 
-<script> 
-	$("#upload").change(function () {
-	  var filename = $(this).val();
-	  $('#fileName').val(filename);
-	}).change();
-</script>
-
 #parse("footer.vm")
