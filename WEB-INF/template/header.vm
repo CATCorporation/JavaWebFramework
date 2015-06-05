@@ -29,7 +29,6 @@
 						<li><a href="./">ACTUALITÉ</a></li>
 						<li><a href="mission">NOTRE MISSION</a></li>
 						<li><a href="projets">NOS PROJETS</a></li>
-						<li><a href="jobs">JOBS</a></li>
 					</ul>
 					<ul class="lien-connexion">
 						#if($idUser > 0)

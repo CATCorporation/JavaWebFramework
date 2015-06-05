@@ -17,7 +17,7 @@ public class DbProject {
 		int error = CodeError.SUCESS;
 		Connection connectionInstance = null;
 		PreparedStatement statementInstance = null;
-		String request = "SELECT * FROM project";
+		String request = "SELECT * FROM project ORDER BY id DESC";
 		ArrayList<Project> projects = new ArrayList<Project>();
 		try {
 			try {
