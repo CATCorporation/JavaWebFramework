@@ -160,7 +160,18 @@ public class FrontController extends HttpServlet implements IFrontController {
 				return true;			}
 
 		});
-			
+
+		rewriter.addRule(new RewriteRule(URIRoot + "deleteProject",
+				"module.project.DeleteProject", new String[] { "path" }) {
+
+			@Override
+			protected boolean checkContext(IContext context) {
+				String[] param = (String[]) context.getParameter("path");
+
+				return true;			}
+
+		});
+
 		rewriter.addRule(new RewriteRule(URIUser + "/velocity",
 						"render.VelocityRenderer", new String[] { "path" }){
 					@Override

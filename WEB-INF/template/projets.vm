@@ -24,6 +24,14 @@
 		#if($project)
 			<img src="$project.getPicture()">
 		#end
+		#if($idUser > 0)
+				<form id="" action="./deleteProject" method="post" onsubmit="return confirm('&ecirc;tes vous sur ?');">
+					<input type="hidden" name="idProject" value="$project.getId()"/>			
+					<input class="supprimer-actualite" type="submit" value="-" />
+				</form>
+
+			#end
+		
 		<div class="project-text">
 			$project.getText()
 		</div>
