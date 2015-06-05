@@ -2,15 +2,18 @@ package module.project;
 
 import interfaces.IMyAction;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 
 import model.Project;
 import model.User;
 
+import org.apache.commons.io.FileUtils;
 import org.esgi.web.framework.action.interfaces.IAction;
 import org.esgi.web.framework.context.interfaces.IContext;
 
+import context.Context;
 import dao.DbProject;
 
 public class AddProject implements IMyAction{
@@ -27,7 +30,7 @@ public class AddProject implements IMyAction{
 		private static final AddProject INSTANCE = new AddProject();
 	}
 	
-	private final static String URI = "/JavaWebFramework/";
+	private final static String URI = "/JavaWebFramework/projets";
 
 	@Override
 	public void proceed(IContext context) {PrintWriter out = null;
@@ -46,7 +49,8 @@ public class AddProject implements IMyAction{
 		text = s;
 	}
 	
-	for(String s : (String[]) context.getParameter("picture")){
+	for(String s : (String[]) context.getParameter("upload")){
+		System.out.println(s);
 		picture = s;
 	}
 	
@@ -54,7 +58,15 @@ public class AddProject implements IMyAction{
     	user = new User((String) context.getSessionAttribute("user"));
     }
 	
-	
+	/*File file = new File(Context.root.getPath() + "/user/projets/");       // File for that path
+	File f =  null;
+	try {
+		FileUtils.moveFile(f, new File(file + "/" + f.getName()));
+	} catch (IOException e1) {
+		// TODO Auto-generated catch block
+		e1.printStackTrace();
+	}
+	*/
     Project project = new Project();
     project.setTitle(title);
     project.setText(text);
