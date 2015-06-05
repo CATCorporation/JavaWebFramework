@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import model.CodeError;
 import model.News;
+import model.Project;
 import model.User;
 
 public class DbNews {
@@ -57,4 +58,37 @@ public class DbNews {
 		return newsList;
 		
 	}
+
+	public static int deleteNews(int id) {
+		int error = CodeError.SUCESS;
+		Connection connectionInstance = null;
+		PreparedStatement statementInstance = null;
+		String request = "DELETE FROM news WHERE id = ?";
+
+		try {
+			try {
+				connectionInstance = DbConnect.getConnection();
+			} catch (Exception ex) {
+				error = CodeError.CONNEXION_FAIL;
+			}
+
+			statementInstance = connectionInstance.prepareStatement(request);
+
+			statementInstance.setInt(1, id);
+			statementInstance.executeUpdate();
+		} catch (SQLException ex) {
+			error = CodeError.STATEMENT_EXECUTE_FAIL;
+		} finally {
+			if (statementInstance != null) {
+				try {
+					statementInstance.close();
+				} catch (SQLException ex) {
+					error = CodeError.STATEMENT_CLOSE_FAIL;
+				}
+			}
+		}
+		return error;
+	}
+
 }
+

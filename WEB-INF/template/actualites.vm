@@ -3,7 +3,7 @@
 <section>
 	
 	#foreach ($news in $newsList)
-		<form>
+		
 			<div class="article">
 				<h1>$news.getTitle()</h1>
 				#if($idUser > 0)
@@ -17,7 +17,7 @@
 				$news.getText()
 				
 			</div>
-		</form>
+		
 	#end
 	
 </section>

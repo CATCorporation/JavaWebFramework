@@ -8,20 +8,22 @@ import java.io.PrintWriter;
 import org.esgi.web.framework.action.interfaces.IAction;
 import org.esgi.web.framework.context.interfaces.IContext;
 
-public class DeleteNews implements IMyAction{
+import dao.DbNews;
 
-	private DeleteNews(){
+public class DeleteNews implements IMyAction {
+
+	private DeleteNews() {
 		System.err.println("DeleteNews singleton");
 	}
-	
-	public static DeleteNews getInstance(){
+
+	public static DeleteNews getInstance() {
 		return deleteNewsHolder.INSTANCE;
 	}
-	
-	private static class deleteNewsHolder{
+
+	private static class deleteNewsHolder {
 		private static final DeleteNews INSTANCE = new DeleteNews();
 	}
-	
+
 	private final static String URI = "/JavaWebFramework/";
 
 	@Override
@@ -32,12 +34,12 @@ public class DeleteNews implements IMyAction{
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
-
+	
+	int id = 0;
 	for (String s : (String[]) context.getParameter("idNews")) {
-		System.err.println(s);
+		id = Integer.parseInt(s);
 	}
-
-	System.err.println("panda");
+	DbNews.deleteNews(id);
 	try {
 		context._getResponse().sendRedirect(URI);
 	} catch (IOException e) {

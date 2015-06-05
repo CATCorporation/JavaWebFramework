@@ -237,7 +237,7 @@ public class FrontController extends HttpServlet implements IFrontController {
 
 		// Permet à un admin de suppriemr une actualité
 		rewriter.addRule(new RewriteRule(URIRoot + "deleteNews",
-				"module.user.DeleteNews", new String[] { "path" }));
+				"module.news.DeleteNews", new String[] { "path" }));
 
 		// Permet ï¿½ l'administrateur de modifier les informations d'un
 		// utilisateur
