@@ -96,7 +96,7 @@ public class DbProject {
 		int error;
 		Connection connectionInstance = null;
 		PreparedStatement statementInstance = null;
-		String request = "UPDATE project " + "SET title_proejct = ?, " + "text_project = ?, "
+		String request = "UPDATE project " + "SET title_project = ?, " + "text_project = ?, "
 				+ "picture_project = ?, " + "WHERE id = ?;";
 
 		try {
@@ -134,7 +134,7 @@ public class DbProject {
 		return error;
 	}
 
-	public static int deleteProject(Project project) {
+	public static int deleteProject(int id) {
 		int error = CodeError.SUCESS;
 		Connection connectionInstance = null;
 		PreparedStatement statementInstance = null;
@@ -149,7 +149,7 @@ public class DbProject {
 
 			statementInstance = connectionInstance.prepareStatement(request);
 
-			statementInstance.setInt(1, project.getId());
+			statementInstance.setInt(1, id);
 			statementInstance.executeUpdate();
 		} catch (SQLException ex) {
 			error = CodeError.STATEMENT_EXECUTE_FAIL;
