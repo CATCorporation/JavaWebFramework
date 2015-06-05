@@ -67,7 +67,11 @@ public class Project {
 	}
 
 	public void setPicture(String picture) {
-		this.picture = picture;
+		if(picture == null){
+			this.picture = new String("");
+		}else{
+			this.picture = picture;
+		}
 	}
 
 	public User getUser() {

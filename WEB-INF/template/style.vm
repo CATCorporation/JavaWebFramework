@@ -205,7 +205,7 @@ section a:hover{
 	padding-left: 9px;
 	padding-right: 9px;
 	float: right;
-	margin-top: -8.5%;
+	margin-top: -7.5%;
 	margin-right: 4%;
 }
 

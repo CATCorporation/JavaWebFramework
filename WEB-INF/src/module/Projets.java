@@ -4,7 +4,9 @@ import interfaces.IMyAction;
 
 import java.io.IOException;
 import java.io.StringWriter;
+import java.util.ArrayList;
 
+import model.Project;
 import model.User;
 
 import org.apache.velocity.Template;
@@ -13,6 +15,8 @@ import org.apache.velocity.app.VelocityEngine;
 import org.apache.velocity.runtime.RuntimeConstants;
 import org.esgi.web.framework.action.interfaces.IAction;
 import org.esgi.web.framework.context.interfaces.IContext;
+
+import dao.DbProject;
 
 public class Projets implements IMyAction{
 
@@ -45,6 +49,9 @@ public class Projets implements IMyAction{
 	    }else{
 	    	vcontext.put("idUser", 0);	
 	    }
+		
+		ArrayList<Project> projects = DbProject.getAllproject();
+		vcontext.put("projects", projects);
 
 		Template t = null;
 

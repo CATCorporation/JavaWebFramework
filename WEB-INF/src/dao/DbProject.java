@@ -34,7 +34,7 @@ public class DbProject {
 				p.setId(result.getInt("id"));
 				p.setTitle(result.getString("title_project"));
 				p.setText(result.getString("text_project"));
-				p.setPicture("picture_project");
+				p.setPicture(result.getString("picture_project"));
 
 				User user = new User();
 				user.setId(result.getInt("id_user"));

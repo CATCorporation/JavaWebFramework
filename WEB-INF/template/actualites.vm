@@ -37,10 +37,9 @@
 
 <article>
 	#if($idUser > 0)
-		<input class="ajouter-actualite" type="button" value="+" />
+		<input id="ajouter-actualite" class="ajouter-actualite" type="button" value="+" />
 	#end
 </article>
 
-</div>
 
 #parse("footer.vm")
