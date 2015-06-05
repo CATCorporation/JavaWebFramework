@@ -9,7 +9,7 @@
 			<label>Titre</label><br/>
 			<input id="title" type="text" name="title" title="title" /><br/>
 			<label>Contenu</label><br/>
-			<textarea id="text" rows="10" cols="35"></textarea>
+			<textarea id="text" name="text" title="text" rows="10" cols="35"></textarea>
 			<input class="button" type="submit" value="Ajouter" />
 		</form>
 	</div>
@@ -23,7 +23,7 @@
 			#if($idUser > 0)
 				<form id="" action="./deleteNews" method="post" onsubmit="return confirm('&ecirc;tes vous sur ?');">
 					<input type="hidden" name="idNews" value="$news.getId()"/>
-					<input class="ajouter-actualite" type="button" value="+" />
+					
 					<input class="supprimer-actualite" type="submit" value="-" />
 				</form>
 
@@ -35,6 +35,10 @@
 	#end
 
 </section>
+
+<article>
+	<input class="ajouter-actualite" type="button" value="+" />
+</article>
 
 </div>
 

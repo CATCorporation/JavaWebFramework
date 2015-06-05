@@ -33,13 +33,16 @@ public class AddNews implements IMyAction{
 
 	String title = new String();
 	String text = new String();
-	for (String s : (String[]) context.getParameter("text")) {
-		text = s;
-	}
 	
 	for(String s : (String[]) context.getParameter("title")){
 		title = s;
 	}
+	
+	for (String s : (String[]) context.getParameter("text")) {
+		text = s;
+	}
+	
+	
 	
     User user = new User((String) context.getSessionAttribute("user"));
     

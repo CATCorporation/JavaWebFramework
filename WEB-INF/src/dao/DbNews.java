@@ -32,7 +32,7 @@ public class DbNews {
 			statementInstance.setString(2, text);
 			statementInstance.setInt(3, user.getId());
 
-			ResultSet result = statementInstance.executeQuery();
+			statementInstance.executeUpdate();
 			
 		} catch (SQLException ex) {
 			error = CodeError.STATEMENT_EXECUTE_FAIL;
@@ -53,7 +53,7 @@ public class DbNews {
 		int error = CodeError.SUCESS;
 		Connection connectionInstance = null;
 		PreparedStatement statementInstance = null;
-		String request = "SELECT * FROM news";
+		String request = "SELECT * FROM news ORDER BY id desc";
 		ArrayList<News> newsList = new ArrayList<>();
 		News news;
 		try {
