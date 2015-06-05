@@ -60,7 +60,7 @@ public class DbProject {
 		int error = CodeError.SUCESS;
 		Connection connectionInstance = null;
 		PreparedStatement statementInstance = null;
-		String request = "NSERT INTO project (title_project, text_project, picture_project, id_user) "
+		String request = "INSERT INTO project (title_project, text_project, picture_project, id_user) "
 				+ "VALUES (?, ?, ?, ?);";
 		try {
 			try {
