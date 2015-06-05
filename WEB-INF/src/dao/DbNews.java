@@ -62,22 +62,27 @@ public class DbNews {
 			} catch (Exception ex) {
 				error = CodeError.CONNEXION_FAIL;
 			}
-
-			statementInstance = connectionInstance.prepareStatement(request);
-
-			ResultSet result = statementInstance.executeQuery();
-			while(result.next()){
-				news = new News();
-				news.setId(result.getInt("id"));
-				news.setTitle(result.getString("title_news"));
-				news.setText(result.getString("text_news"));
-				
-				User user = new User();
-				user.setId(result.getInt("id_user"));
-				news.setUser(user);
-				
-				newsList.add(news);
+			
+			try{
+				statementInstance = connectionInstance.prepareStatement(request);
+	
+				ResultSet result = statementInstance.executeQuery();
+				while(result.next()){
+					news = new News();
+					news.setId(result.getInt("id"));
+					news.setTitle(result.getString("title_news"));
+					news.setText(result.getString("text_news"));
+					
+					User user = new User();
+					user.setId(result.getInt("id_user"));
+					news.setUser(user);
+					
+					newsList.add(news);
+				}
+			}catch(NullPointerException e){
+				System.err.println(e.getMessage());
 			}
+				
 			
 		} catch (SQLException ex) {
 			error = CodeError.STATEMENT_EXECUTE_FAIL;
