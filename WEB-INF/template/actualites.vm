@@ -28,7 +28,6 @@
 				</form>
 
 			#end
-			$news.getId()
 			$news.getText()
 
 		</div>
@@ -37,7 +36,9 @@
 </section>
 
 <article>
-	<input class="ajouter-actualite" type="button" value="+" />
+	#if($idUser > 0)
+		<input class="ajouter-actualite" type="button" value="+" />
+	#end
 </article>
 
 </div>
