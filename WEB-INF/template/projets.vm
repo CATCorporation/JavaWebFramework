@@ -2,21 +2,24 @@
 
 <div id="popup-ajout-projet" class="popup-cadre">
 	<div class="popup-titre">
-		<label>Ajouter actualit&eacute;</label><br>
+		
 	</div>
 	<div class="popup-information">
-		<form action="./addProject" method="post" enctype="multipart/form-data">
+		
+	</div>
+</div>
+<article>
+<label>Ajouter projet</label><br>
+<form action="./addProject" method="post" enctype="multipart/form-data">
 			<label>Titre</label><br/>
 			<input id="title" type="text" name="title" title="title" /><br/>
 			<label>Image</label>
-			<input name="upload" id="upload" title="picture" type="file" /><br>
+			<input name="picture" id="picture" title="picture" type="file" /><br>
 			<label>Contenu</label><br/>
 			<textarea id="text" name="text" title="text" rows="10" cols="35"></textarea>
 			<input class="button" type="submit" value="Ajouter" />
 		</form>
-	</div>
-</div>
-
+</article>		
 <section>
 #foreach ($project in $projects)
 	<div class="article">

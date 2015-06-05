@@ -49,24 +49,31 @@ public class AddProject implements IMyAction{
 		text = s;
 	}
 	
-	for(String s : (String[]) context.getParameter("upload")){
+	for(File f : context.getUploadedFiles()) {
+			picture = f.getName();		
+	}
+	
+	/*
+	for(String s : (String[]) context.getParameter("picture")){
 		System.out.println(s);
 		picture = s;
-	}
+	}*/
 	
 	if(context.getSessionAttribute("user") != null){
     	user = new User((String) context.getSessionAttribute("user"));
     }
 	
-	/*File file = new File(Context.root.getPath() + "/user/projets/");       // File for that path
-	File f =  null;
+	String path ;
+
+	File file = new File(Context.root.getAbsolutePath() + "/res/user/projets/");       // File for that path
+	File f =  new File(Context.root.getAbsolutePath() + "/tmp/"+picture);;
 	try {
 		FileUtils.moveFile(f, new File(file + "/" + f.getName()));
 	} catch (IOException e1) {
 		// TODO Auto-generated catch block
 		e1.printStackTrace();
 	}
-	*/
+	
     Project project = new Project();
     project.setTitle(title);
     project.setText(text);
