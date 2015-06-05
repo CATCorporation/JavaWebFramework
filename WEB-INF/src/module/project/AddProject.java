@@ -71,6 +71,7 @@ public class AddProject implements IMyAction{
     project.setTitle(title);
     project.setText(text);
     project.setUser(user);
+    project.setPicture("explorer/user/projets/"+picture); 
     
     DbProject.addProject(project);
 
