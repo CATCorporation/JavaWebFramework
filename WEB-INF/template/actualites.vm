@@ -1,27 +1,41 @@
 #parse("header.vm")
-			
+
+<div id="popup-ajout-actualite" class="popup-cadre">
+	<div class="popup-titre">
+		<label>Ajouter actualit&eacute;</label><br>
+	</div>
+	<div class="popup-information">
+		<form action="./addNews" method="post">
+			<label>Titre</label><br/>
+			<input id="title" type="text" name="title" title="title" /><br/>
+			<label>Contenu</label><br/>
+			<textarea id="text" rows="10" cols="35"></textarea>
+			<input class="button" type="submit" value="Ajouter" />
+		</form>
+	</div>
+</div>
+
 <section>
-	
+
 	#foreach ($news in $newsList)
-		
-			<div class="article">
-				<h1>$news.getTitle()</h1>
-				#if($idUser > 0)
-					<form id="" action="./deleteNews" method="post" onsubmit="return confirm('Êtes vous sur ?');">
-						<input type="hidden" name="idNews" value="$news.getId()"/>
-						<input id="supprimer-actualite" type="submit" value="-" />	
-					</form>
-			
-				#end
-				$news.getId()
-				$news.getText()
-				
-			</div>
-		
+		<div class="article">
+			<h1>$news.getTitle()</h1>
+			#if($idUser > 0)
+				<form id="" action="./deleteNews" method="post" onsubmit="return confirm('&ecirc;tes vous sur ?');">
+					<input type="hidden" name="idNews" value="$news.getId()"/>
+					<input class="ajouter-actualite" type="button" value="+" />
+					<input class="supprimer-actualite" type="submit" value="-" />
+				</form>
+
+			#end
+			$news.getId()
+			$news.getText()
+
+		</div>
 	#end
-	
+
 </section>
 
 </div>
-			
+
 #parse("footer.vm")

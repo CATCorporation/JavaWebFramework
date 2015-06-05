@@ -33,7 +33,7 @@ h1 {
 	display: none;
 }
 
-#popup-login{
+.popup-cadre{
 	display: none;
 	border-radius: 3px;
 	width: 22%;
@@ -178,7 +178,7 @@ section a:hover{
 	text-decoration: underline;
 }
 
-#supprimer-actualite{
+.supprimer-actualite{
 	background-color: rgb(245, 245, 245);
 	color: red;
 	/*font-weight: bold;*/
@@ -187,14 +187,14 @@ section a:hover{
 	font-size: 24px;
 	padding-top: 2px;
 	padding-bottom: 2px;
-	padding-left: 9px;
-	padding-right: 9px;
+	padding-left: 10px;
+	padding-right: 10px;
 	float: right;
 	margin-top: -8.5%;
 	margin-right: -1%;
 }
 
-#ajouter-actualite{
+.ajouter-actualite{
 	background-color: rgb(245, 245, 245);
 	color: green;
 	/*font-weight: bold;*/
@@ -207,7 +207,7 @@ section a:hover{
 	padding-right: 9px;
 	float: right;
 	margin-top: -8.5%;
-	margin-right: -1%;
+	margin-right: 4%;
 }
 
 .article{

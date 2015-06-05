@@ -8,9 +8,8 @@
 
 	<body>
 		<div id="background-login">
-			<!-- <img id="background-login-image" src="background-login.png"> -->
 		</div>
-		<div id="popup-login">
+		<div id="popup-login" class="popup-cadre">
 			<div class="popup-titre">
 				<label>Connexion</label><br>
 			</div>

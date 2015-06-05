@@ -8,6 +8,9 @@ $(document).ready(function(){
 	$("#background-login").click(function(){
 		$("#background-login").fadeOut();
 		$("#popup-login").fadeOut();
+
+		$("#background-login").fadeOut();
+		$("#popup-ajout-actualite").fadeOut();
 		$("#body").css("overflow", "auto");
 	});
 
@@ -20,4 +23,10 @@ $(document).ready(function(){
 			alert("Actualité supprimée");
 		}
 	});*/
+
+	$(".ajouter-actualite").click(function(){
+		$("#background-login").fadeIn();
+		$("#popup-ajout-actualite").fadeIn();
+		$("#body").css("overflow", "hidden");
+	})
 });

@@ -106,6 +106,17 @@ public class FrontController extends HttpServlet implements IFrontController {
 
 		});
 		
+		rewriter.addRule(new RewriteRule(URIRoot + "addNews",
+				"module.news.AddNews", new String[] { "path" }) {
+
+			@Override
+			protected boolean checkContext(IContext context) {
+				String[] param = (String[]) context.getParameter("path");
+
+				return true;			}
+
+		});
+		
 		rewriter.addRule(new RewriteRule(URIRoot + "mission",
 				"module.Mission", new String[] { "path" }) {
 
@@ -235,7 +246,7 @@ public class FrontController extends HttpServlet implements IFrontController {
 		rewriter.addRule(new RewriteRule(URIRoot + "logout",
 				"module.user.Logout", new String[] { "path" }));
 
-		// Permet à un admin de suppriemr une actualité
+		// Permet ï¿½ un admin de suppriemr une actualitï¿½
 		rewriter.addRule(new RewriteRule(URIRoot + "deleteNews",
 				"module.news.DeleteNews", new String[] { "path" }));
 
