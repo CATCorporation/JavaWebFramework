@@ -7,9 +7,13 @@
 			<div class="article">
 				<h1>$news.getTitle()</h1>
 				#if($idUser > 0)
-					<input id="supprimer-actualite" type="submit" value="-" />	
+					<form id="" action="./deleteNews" method="post" onsubmit="return confirm('Êtes vous sur ?');">
+						<input type="hidden" name="idNews" value="$news.getId()"/>
+						<input id="supprimer-actualite" type="submit" value="-" />	
+					</form>
+			
 				#end
-				
+				$news.getId()
 				$news.getText()
 				
 			</div>

@@ -11,11 +11,13 @@ $(document).ready(function(){
 		$("#body").css("overflow", "auto");
 	});
 
-	$("#supprimer-actualite").click(function(){
+	/*$("#supprimer-actualite").click(function(){
 		// var confirm = confirm("Voulez-vous vraiment supprimer cette actualite ?");
 		var supprimer = confirm("Voulez-vous vraiment supprimer cette actualite ?");
-		if(confirm == true){
+		if(supprimer == true){
+			var a = $(this).parent().parent();
+			$(this).parent().parent().submit();
 			alert("Actualité supprimée");
 		}
-	});
+	});*/
 });
