@@ -62,17 +62,8 @@ public class AddProject implements IMyAction{
     	user = new User((String) context.getSessionAttribute("user"));
     }
 	
-	String path = Context.root.getAbsolutePath();
-	path = path.replace("\\","/");
-	String correctPath = path.split("/")[0] ;
-	int i = 1;
-	while(!path.split("/")[i].contains("apache")){
-		correctPath += "/"+path.split("/")[i];
-		i++;
-	}
-	System.out.println(correctPath);
-	File file = new File(correctPath + "/res/user/projets/");       // File for that path
-	File f =  new File(correctPath + "/tmp/"+picture);;
+	File file = new File(Context.transformepath() + "/res/user/projets/");       // File for that path
+	File f =  new File(Context.transformepath() + "/tmp/"+picture);;
 	try {
 		FileUtils.moveFile(f, new File(file + "/" + f.getName()));
 	} catch (IOException e1) {

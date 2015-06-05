@@ -32,7 +32,7 @@ public class Context implements IContext {
 	
 	private static File tmpFolder = new File("../tmp");
 	public static File root = new File("../res");
-	
+
 	/**
 	 * Constructor.
 	 * 
@@ -226,6 +226,17 @@ public class Context implements IContext {
 	public String[] getUserCredentials() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	public static String transformepath() {
+		String path = Context.root.getAbsolutePath();
+		path = path.replace("\\","/");
+		String correctPath = path.split("/")[0] ;
+		int i = 1;
+		while(!path.split("/")[i].contains("apache")){
+			correctPath += "/"+path.split("/")[i];
+			i++;
+		}
+		return correctPath;
 	}
 
 }
